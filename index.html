@@ -2,84 +2,164 @@
 <html>
 
 <head>
-<title>Alishba | Research Portfolio</title>
+<title>Alishba | Quantum Research Portfolio</title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2fe 100%);
+    color: #1a1a2e;
+    line-height: 1.6;
+  }
+  h1 {
+    color: #4f46e5;
+    font-size: 2.5rem;
+    border-left: 5px solid #4f46e5;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  h2 {
+    color: #1e1b4b;
+    margin-top: 40px;
+    border-bottom: 2px solid #c7d2fe;
+    padding-bottom: 8px;
+  }
+  h3 {
+    color: #4f46e5;
+    margin-top: 25px;
+  }
+  a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  a:hover {
+    color: #6366f1;
+    text-decoration: underline;
+  }
+  .button {
+    background-color: #4f46e5;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .button:hover {
+    background-color: #6366f1;
+    text-decoration: none;
+    transform: scale(1.02);
+  }
+  .research-card {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .research-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  nav {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    margin: 25px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  nav a {
+    margin: 0 15px;
+    font-weight: 600;
+  }
+  .contact {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .contact a {
+    margin: 0 10px;
+    display: inline-block;
+  }
+  hr {
+    margin: 30px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #c7d2fe, transparent);
+  }
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    body { padding: 20px; }
+    h1 { font-size: 1.8rem; }
+    nav a { margin: 0 8px; }
+  }
+</style>
 </head>
 
 <body>
 
-<!-- Header -->
 <h1>Alishba</h1>
-<p>Student Researcher in Quantum Information</p>
+<p style="font-size: 1.2rem; color: #4f46e5;">Student Researcher in Quantum Information</p>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="error-correction.html">Error Correction</a>
+<a href="projects.html">Qiskit Projects</a>
+<a href="error-mitigation.html">Error Mitigation</a>
+<a href="research.html">Original Research</a>
+</nav>
 
 <hr>
 
-<!-- Navigation -->
-<h2>Navigation</h2>
-
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="research.html">Research</a></li>
-<li><a href="projects.html">Projects</a></li>
-</ul>
-
-<hr>
-
-<!-- About Section -->
 <h2>About Me</h2>
-
 <p>
-I am a student researcher with an interest in quantum computing,
-mathematics, and theoretical physics. My work focuses on quantum
-error correction, stabilizer codes, and computational simulations.
+I am a student researcher with an interest in quantum computing, mathematics, and theoretical physics. My work focuses on quantum error correction, stabilizer codes, error mitigation, and computational simulations. I aim to contribute to the development of practical quantum computing through both theoretical analysis and hands-on implementation.
 </p>
 
 <!-- Research 1 -->
-<h2>Featured Research</h2>
-
-<h3>Quantum Error Correction and Stabilizer Codes</h3>
-
-<p>
-This research compares the performance of Shor’s 9-qubit code and
-Steane’s 7-qubit code under depolarizing noise. The project combines
-mathematical analysis with Python-based simulations.
-</p>
-
-<p>
-<a href="research.html">View Research Details</a>
-</p>
-
-<hr>
+<div class="research-card">
+  <h3>Quantum Error Correction and Stabilizer Codes</h3>
+  <p>Compares Shor’s 9-qubit code and Steane’s 7-qubit code under depolarizing noise. Combines mathematical analysis with Python-based simulations using Qiskit.</p>
+  <a href="error-correction.html" class="button">View Research Details →</a>
+</div>
 
 <!-- Research 2 -->
-<h2>Quantum Circuit Simulation with Qiskit</h2>
-
-<p>
-This project explores quantum circuit optimization and simulation using IBM's Qiskit framework. It focuses on implementing basic quantum algorithms like Deutsch-Jozsa and Grover's search.
-</p>
-
-<p>
-<a href="projects.html">View Project Details</a>
-</p>
-
-<hr>
+<div class="research-card">
+  <h3>Quantum Circuit Simulation with Qiskit</h3>
+  <p>Explores quantum circuit optimization and simulation using IBM's Qiskit framework. Implements Deutsch-Jozsa, Grover’s search, and teleportation with noise analysis.</p>
+  <a href="projects.html" class="button">View Project Details →</a>
+</div>
 
 <!-- Research 3 -->
-<h2>Quantum Error Mitigation for Near-Term Devices</h2>
+<div class="research-card">
+  <h3>Quantum Error Mitigation for Near-Term Devices</h3>
+  <p>Develops and benchmarks error mitigation techniques (zero-noise extrapolation, probabilistic error cancellation) for NISQ devices to enable meaningful quantum computations.</p>
+  <a href="error-mitigation.html" class="button">View Research Details →</a>
+</div>
 
-<p>
-This research develops and benchmarks error mitigation techniques like zero-noise extrapolation and probabilistic error cancellation for noisy intermediate-scale quantum (NISQ) devices. The goal is to enable meaningful quantum computations before full fault-tolerance is achieved.
-</p>
+<!-- Contact Section -->
+<div class="contact">
+  <h2 style="margin-top: 0;">Connect With Me</h2>
+  <p>📧 <a href="mailto:alishba@example.com">alishba@example.com</a></p>
+  <p>🔗 <a href="#">GitHub</a> | <a href="#">LinkedIn</a> | <a href="#">Google Scholar</a></p>
+  <p><small>I'm open to research collaborations and discussions about quantum computing.</small></p>
+</div>
 
-<p>
-<a href="error-mitigation.html">View Research Details</a>
-</p>
-
-<hr>
-
-<!-- Footer -->
-<p>
-© 2026 Alishba | Research Portfolio
-</p>
+<footer>
+© 2026 Alishba | Quantum Research Portfolio
+</footer>
 
 </body>
 
