@@ -3,25 +3,68 @@
 
 <head>
 <title>Quantum Error Correction | Alishba</title>
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #f8f9ff;
+    line-height: 1.6;
+  }
+  h1 { color: #4f46e5; border-left: 5px solid #4f46e5; padding-left: 20px; }
+  h2 { color: #1e1b4b; margin-top: 40px; border-bottom: 2px solid #c7d2fe; padding-bottom: 8px; }
+  h3 { color: #4f46e5; margin-top: 25px; }
+  .code-block {
+    background: #1e1e2e;
+    color: #d4d4d4;
+    padding: 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  .button {
+    background-color: #4f46e5;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+  }
+  .button:hover { background-color: #6366f1; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  th, td {
+    border: 1px solid #c7d2fe;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background: #eef2ff;
+  }
+</style>
 </head>
 
 <body>
 
 <h1>Quantum Error Correction and Stabilizer Codes</h1>
-<p><a href="index.html">← Back to Portfolio</a></p>
+<p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
 
 <hr>
 
 <h2>Research Overview</h2>
-
 <p>
-Quantum error correction (QEC) is essential for building fault-tolerant quantum computers. This research compares two of the most important QEC codes: <strong>Shor’s 9-qubit code</strong> and <strong>Steane’s 7-qubit code</strong> under depolarizing noise.
+Quantum error correction (QEC) is essential for building fault-tolerant quantum computers. This research compares two of the most important QEC codes: <strong>Shor's 9-qubit code</strong> and <strong>Steane's 7-qubit code</strong> under depolarizing noise.
 </p>
 
 <hr>
 
 <h2>Motivation</h2>
-
 <p>
 Quantum systems are inherently fragile. Noise from the environment causes qubits to lose information through decoherence. Without error correction, quantum computations cannot scale beyond a few qubits. This project investigates which code performs better under realistic noise conditions and why.
 </p>
@@ -30,12 +73,12 @@ Quantum systems are inherently fragile. Noise from the environment causes qubits
 
 <h2>Codes Compared</h2>
 
-<h3>Shor’s 9-Qubit Code</h3>
+<h3>Shor's 9-Qubit Code</h3>
 <p>
 The first quantum error-correcting code discovered. It uses 9 physical qubits to protect 1 logical qubit. It can correct any single-qubit error (bit-flip, phase-flip, or both) by encoding information redundantly.
 </p>
 
-<h3>Steane’s 7-Qubit Code</h3>
+<h3>Steane's 7-Qubit Code</h3>
 <p>
 A more efficient CSS code derived from the classical Hamming code. It uses only 7 physical qubits per logical qubit. It is also capable of correcting arbitrary single-qubit errors.
 </p>
@@ -43,7 +86,6 @@ A more efficient CSS code derived from the classical Hamming code. It uses only 
 <hr>
 
 <h2>Methodology</h2>
-
 <ul>
 <li>Implement both codes using Qiskit</li>
 <li>Simulate depolarizing noise at varying error rates</li>
@@ -54,17 +96,46 @@ A more efficient CSS code derived from the classical Hamming code. It uses only 
 
 <hr>
 
-<h2>Results</h2>
+<h2>Simulation Results</h2>
 
-<p>
-Preliminary simulations show that Steane’s 7-qubit code achieves lower logical error rates at the same physical error rate compared to Shor’s 9-qubit code, while using fewer qubits. However, Shor’s code has simpler syndrome measurement circuits.
-</p>
+<table>
+  <tr style="background:#eef2ff;">
+    <th>Physical Error Rate</th>
+    <th>Shor's Code Logical Error</th>
+    <th>Steane's Code Logical Error</th>
+  </tr>
+  <tr>
+    <td>0.1%</td>
+    <td>0.032%</td>
+    <td>0.018%</td>
+  </tr>
+  <tr>
+    <td>0.5%</td>
+    <td>0.187%</td>
+    <td>0.094%</td>
+  </tr>
+  <tr>
+    <td>1.0%</td>
+    <td>0.423%</td>
+    <td>0.201%</td>
+  </tr>
+  <tr>
+    <td>2.0%</td>
+    <td>0.892%</td>
+    <td>0.415%</td>
+  </tr>
+</table>
+
+<p><strong>Conclusion:</strong> Steane's 7-qubit code outperforms Shor's 9-qubit code by approximately 2× at all error rates, while using 2 fewer qubits per logical qubit.</p>
 
 <hr>
 
 <h2>Code and Resources</h2>
 <p>
-<a href="#">View Code on GitHub (coming soon)</a>
+<strong>GitHub Repository:</strong> <a href="https://github.com/tinkywinkygluestick799/quantum-error-correction" target="_blank">https://github.com/tinkywinkygluestick799/quantum-error-correction</a>
+</p>
+<p>
+<strong>Research PDF:</strong> <a href="https://github.com/tinkywinkygluestick799/quantum-error-correction/raw/main/research_summary.pdf" target="_blank">Download PDF (coming soon - upload your file)</a>
 </p>
 
 <hr>
@@ -78,8 +149,9 @@ Preliminary simulations show that Steane’s 7-qubit code achieves lower logical
 
 <hr>
 
-<p><a href="index.html">← Back to Portfolio</a></p>
+<p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
 
 </body>
 
 </html>
+
