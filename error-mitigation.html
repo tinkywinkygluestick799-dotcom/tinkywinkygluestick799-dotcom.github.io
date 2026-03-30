@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Quantum Error Mitigation | Alishba</title>
+</head>
+
+<body>
+
+<!-- Header -->
+<h1>Quantum Error Mitigation for Near-Term Devices</h1>
+<p><a href="index.html">← Back to Portfolio</a></p>
+
+<hr>
+
+<!-- Introduction -->
+<h2>Research Overview</h2>
+
+<p>
+Quantum computers today are in the <strong>Noisy Intermediate-Scale Quantum (NISQ)</strong> era. They contain 50–几百 qubits but are too noisy to implement full quantum error correction. Error mitigation techniques bridge this gap by reducing the impact of noise without requiring full fault tolerance.
+</p>
+
+<p>
+This research focuses on developing, implementing, and benchmarking error mitigation methods to extract meaningful results from current quantum hardware. The work combines theoretical understanding of noise models with practical implementation on IBM Quantum devices.
+</p>
+
+<hr>
+
+<!-- Motivation -->
+<h2>Motivation</h2>
+
+<p>
+Full quantum error correction requires thousands of physical qubits per logical qubit — far beyond current capabilities. However, we cannot wait 10–15 years to run useful quantum algorithms. Error mitigation provides a path forward by:
+</p>
+
+<ul>
+<li>Reducing expectation value estimation errors by orders of magnitude</li>
+<li>Enabling meaningful quantum simulations with 50–100 qubits today</li>
+<li>Serving as a bridge technology until fault tolerance is achievable</li>
+</ul>
+
+<p>
+Leading quantum companies (IBM, Google, Quantinuum) have identified error mitigation as a critical research priority. This work positions itself at the forefront of that effort.
+</p>
+
+<hr>
+
+<!-- Techniques -->
+<h2>Error Mitigation Techniques</h2>
+
+<h3>1. Zero-Noise Extrapolation (ZNE)</h3>
+
+<p>
+ZNE works by intentionally amplifying noise at multiple levels, then extrapolating back to the zero-noise limit. This technique assumes noise is known and can be scaled predictably. Implementation involves:
+</p>
+<ul>
+<li>Pulse stretching to amplify noise</li>
+<li>Circuit folding techniques for gate-level noise scaling</li>
+<li>Linear and exponential extrapolation models</li>
+</ul>
+
+<h3>2. Probabilistic Error Cancellation (PEC)</h3>
+
+<p>
+PEC uses quasi-probability decomposition to effectively "invert" known noise channels. It provides unbiased estimates but at a sampling overhead cost. This technique:
+</p>
+<ul>
+<li>Requires detailed characterization of device noise</li>
+<li>Gives unbiased results (unlike ZNE)</li>
+<li>Has exponential sampling overhead with circuit depth</li>
+</ul>
+
+<h3>3. Readout Error Mitigation</h3>
+
+<p>
+Measurement errors are often the dominant noise source. This technique uses calibration matrices to correct for measurement errors through:
+</p>
+<ul>
+<li>Construction of response matrices from calibration circuits</li>
+<li>Matrix inversion or iterative Bayesian methods</li>
+<li>Implementation in Qiskit and other frameworks</li>
+</ul>
+
+<hr>
+
+<!-- Methods -->
+<h2>Methodology</h2>
+
+<p>
+This research employs a three-phase methodology:
+</p>
+
+<ol>
+<li><strong>Simulation Phase:</strong> Implement error mitigation techniques in Qiskit Aer with customizable noise models to establish baseline performance.</li>
+<li><strong>Hardware Phase:</strong> Run benchmark circuits (randomized benchmarking, quantum volume, variational algorithms) on IBM Quantum devices with and without mitigation.</li>
+<li><strong>Analysis Phase:</strong> Compare fidelity improvements, sampling overhead, and practical applicability across different circuit types and depths.</li>
+</ol>
+
+<hr>
+
+<!-- Results -->
+<h2>Expected Outcomes</h2>
+
+<ul>
+<li>Comprehensive benchmark suite comparing ZNE, PEC, and readout mitigation across multiple hardware platforms</li>
+<li>Open-source Python implementation of mitigation techniques for community use</li>
+<li>Guidelines for selecting appropriate mitigation strategies based on circuit characteristics</li>
+<li>Publication-ready results demonstrating 1–2 orders of magnitude improvement in observable accuracy</li>
+</ul>
+
+<hr>
+
+<!-- Code & Resources -->
+<h2>Code and Resources</h2>
+
+<p>
+All simulation code and analysis tools will be made available on GitHub. The project uses:
+</p>
+<ul>
+<li><strong>Qiskit:</strong> IBM's quantum computing framework</li>
+<li><strong>Mitiq:</strong> Python library for error mitigation</li>
+<li><strong>NumPy/SciPy:</strong> Numerical analysis tools</li>
+<li><strong>Matplotlib:</strong> Visualization of results</li>
+</ul>
+
+<p>
+<a href="#">View Code on GitHub (coming soon)</a>
+</p>
+
+<hr>
+
+<!-- References -->
+<h2>Selected References</h2>
+
+<ul>
+<li>Temme, K., Bravyi, S., & Gambetta, J. M. (2017). Error mitigation for short-depth quantum circuits. <em>Physical Review Letters</em>, 119(18), 180509.</li>
+<li>Endo, S., Benjamin, S. C., & Li, Y. (2018). Practical quantum error mitigation for near-future applications. <em>Physical Review X</em>, 8(3), 031027.</li>
+<li>Giurgica-Tiron, T., et al. (2020). Digital zero noise extrapolation for quantum error mitigation. <em>2020 IEEE International Conference on Quantum Computing and Engineering (QCE)</em>.</li>
+<li>van den Berg, E., et al. (2022). Probabilistic error cancellation with sparse Pauli-Lindblad models on noisy quantum processors. <em>arXiv:2201.09866</em>.</li>
+</ul>
+
+<hr>
+
+<!-- Footer -->
+<p>
+© 2026 Alishba | Quantum Error Mitigation Research
+</p>
+<p>
+<a href="index.html">← Back to Portfolio</a>
+</p>
+
+</body>
+
+</html>
