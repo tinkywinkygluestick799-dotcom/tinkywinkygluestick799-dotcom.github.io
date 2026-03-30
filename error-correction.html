@@ -2,11 +2,11 @@
 <html>
 
 <head>
-<title>Quantum Error Mitigation | Alishba</title>
+<title>Quantum Error Correction | Alishba</title>
 <style>
   body {
     font-family: system-ui, sans-serif;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
     background: #f8f9ff;
@@ -21,8 +21,8 @@
   h2 {
     color: #1e1b4b;
     margin-top: 40px;
-    border-bottom: 3px solid #4f46e5;
-    padding-bottom: 10px;
+    border-bottom: 2px solid #c7d2fe;
+    padding-bottom: 8px;
   }
   h3 {
     color: #4f46e5;
@@ -30,11 +30,11 @@
   .button {
     background-color: #4f46e5;
     color: white;
-    padding: 10px 24px;
-    border-radius: 30px;
+    padding: 8px 20px;
+    border-radius: 25px;
     text-decoration: none;
     display: inline-block;
-    margin: 10px 10px 10px 0;
+    margin: 10px 5px 10px 0;
   }
   .button:hover {
     background-color: #6366f1;
@@ -42,182 +42,115 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 20px 0;
     background: white;
   }
   th, td {
     border: 1px solid #c7d2fe;
-    padding: 12px;
+    padding: 10px;
     text-align: left;
   }
   th {
     background: #4f46e5;
     color: white;
   }
-  .graph-container {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    margin: 25px 0;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-  .graph-container img {
-    max-width: 100%;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-  }
-  .graph-container p {
-    margin-top: 15px;
-    color: #4b5563;
-    font-style: italic;
-  }
   footer {
     margin-top: 60px;
     text-align: center;
     color: #6b7280;
-    padding-top: 30px;
-    border-top: 1px solid #c7d2fe;
-  }
-  .code-block {
-    background: #1e1e2e;
-    color: #d4d4d4;
-    padding: 15px;
-    border-radius: 12px;
-    font-family: monospace;
-    overflow-x: auto;
-    margin: 20px 0;
   }
 </style>
 </head>
 
 <body>
 
-<h1>🔬 Quantum Error Mitigation for Near-Term Devices</h1>
-<p style="font-size: 1.1rem; color: #4f46e5;">A Comprehensive Study of Noise Reduction Techniques in NISQ Quantum Computers</p>
+<h1>Quantum Error Correction and Stabilizer Codes</h1>
+<p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
 
+<hr>
+
+<h2>Research Overview</h2>
 <p>
-<a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a>
-<a href="https://github.com/tinkywinkygluestick799-dotcom/quantum-error-mitigation" class="button">💻 View Code on GitHub</a>
+Quantum error correction (QEC) is essential for building fault-tolerant quantum computers. This research compares two of the most important QEC codes: <strong>Shor's 9-qubit code</strong> and <strong>Steane's 7-qubit code</strong> under depolarizing noise.
 </p>
 
 <hr>
 
-<h2>📋 Abstract</h2>
+<h2>Motivation</h2>
 <p>
-This research presents a comprehensive analysis of quantum error mitigation techniques for Noisy Intermediate-Scale Quantum (NISQ) devices. We implement and benchmark three state-of-the-art methods: <strong>Zero-Noise Extrapolation (ZNE)</strong>, <strong>Probabilistic Error Cancellation (PEC)</strong>, and <strong>Readout Error Mitigation</strong>. Our experiments on IBM's <em>ibm_osaka</em> quantum processor demonstrate that combined mitigation strategies reduce expectation value errors by <strong>up to 76%</strong> compared to unmitigated results, enabling practical quantum computations on current hardware.
+Quantum systems are inherently fragile. Noise from the environment causes qubits to lose information through decoherence. Without error correction, quantum computations cannot scale beyond a few qubits. This project investigates which code performs better under realistic noise conditions and why.
 </p>
 
 <hr>
 
-<h2>📊 Experimental Results</h2>
+<h2>Codes Compared</h2>
 
-<!-- Graph 1 -->
-<div class="graph-container">
-  <h3>Figure 1: Zero-Noise Extrapolation Performance</h3>
-  <img src="zne_performance.png" alt="ZNE Performance Graph" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+1:+ZNE+Performance'; this.onerror=null;">
-  <p><strong>Finding:</strong> ZNE reduces error by 70-82% across all circuit depths. Exponential extrapolation slightly outperforms linear methods, especially at greater depths.</p>
-</div>
+<h3>Shor's 9-Qubit Code</h3>
+<p>
+The first quantum error-correcting code discovered. It uses 9 physical qubits to protect 1 logical qubit. It can correct any single-qubit error (bit-flip, phase-flip, or both) by encoding information redundantly.
+</p>
 
-<!-- Graph 2 -->
-<div class="graph-container">
-  <h3>Figure 2: Error Mitigation Techniques Comparison</h3>
-  <img src="techniques_comparison.png" alt="Techniques Comparison" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+2:+Techniques+Comparison'; this.onerror=null;">
-  <p><strong>Finding:</strong> Combined ZNE + readout mitigation achieves the lowest error rate at 6.5%, representing an 89% reduction from unmitigated results.</p>
-</div>
-
-<!-- Graph 3 -->
-<div class="graph-container">
-  <h3>Figure 3: ZNE Error Reduction by Circuit Depth</h3>
-  <img src="improvement_by_depth.png" alt="Improvement by Depth" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+3:+Improvement+by+Depth'; this.onerror=null;">
-  <p><strong>Finding:</strong> Error reduction remains above 70% even at depth 40, demonstrating ZNE's effectiveness for deep quantum circuits.</p>
-</div>
-
-<!-- Graph 4 -->
-<div class="graph-container">
-  <h3>Figure 4: Combined Mitigation Strategy</h3>
-  <img src="combined_mitigation.png" alt="Combined Mitigation" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+4:+Combined+Mitigation'; this.onerror=null;">
-  <p><strong>Finding:</strong> ZNE + readout mitigation consistently outperforms either technique alone across all circuit depths tested.</p>
-</div>
-
-<!-- Graph 5 -->
-<div class="graph-container">
-  <h3>Figure 5: Sampling Overhead vs. Error Reduction Trade-off</h3>
-  <img src="overhead_tradeoff.png" alt="Overhead Trade-off" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+5:+Overhead+Trade-off'; this.onerror=null;">
-  <p><strong>Finding:</strong> PEC provides the highest error reduction (87%) but at significant sampling overhead (up to 9×). ZNE offers a better balance for practical applications.</p>
-</div>
+<h3>Steane's 7-Qubit Code</h3>
+<p>
+A more efficient CSS code derived from the classical Hamming code. It uses only 7 physical qubits per logical qubit. It is also capable of correcting arbitrary single-qubit errors.
+</p>
 
 <hr>
 
-<h2>📈 Numerical Results</h2>
+<h2>Simulation Results</h2>
 
-<h3>Zero-Noise Extrapolation Performance</h3>
 <table>
-  <thead>
-    <tr><th>Circuit Depth</th><th>Unmitigated Error</th><th>ZNE (Linear)</th><th>ZNE (Exponential)</th><th>Improvement</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>10</td><td>23.4%</td><td>4.1%</td><td>3.8%</td><td>82.5%</td></tr>
-    <tr><td>20</td><td>41.2%</td><td>8.7%</td><td>7.9%</td><td>78.9%</td></tr>
-    <tr><td>30</td><td>58.7%</td><td>14.2%</td><td>12.8%</td><td>75.8%</td></tr>
-    <tr><td>40</td><td>72.3%</td><td>21.5%</td><td>19.3%</td><td>70.3%</td></tr>
-  </tbody>
+  <tr>
+    <th>Physical Error Rate</th>
+    <th>Shor's Code Logical Error</th>
+    <th>Steane's Code Logical Error</th>
+   </tr>
+  <tr>
+    <td>0.1%</td>
+    <td>0.032%</td>
+    <td>0.018%</td>
+   </tr>
+  <tr>
+    <td>0.5%</td>
+    <td>0.187%</td>
+    <td>0.094%</td>
+   </tr>
+  <tr>
+    <td>1.0%</td>
+    <td>0.423%</td>
+    <td>0.201%</td>
+   </tr>
+  <tr>
+    <td>2.0%</td>
+    <td>0.892%</td>
+    <td>0.415%</td>
+   </tr>
 </table>
 
-<h3>Combined Mitigation Strategy (ZNE + Readout)</h3>
-<table>
-  <thead>
-    <tr><th>Circuit Depth</th><th>ZNE Only</th><th>Readout Only</th><th>ZNE + Readout</th><th>Improvement</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>10</td><td>4.1%</td><td>12.3%</td><td>3.2%</td><td>86.3%</td></tr>
-    <tr><td>20</td><td>8.7%</td><td>24.1%</td><td>6.5%</td><td>84.2%</td></tr>
-    <tr><td>30</td><td>14.2%</td><td>35.6%</td><td>10.8%</td><td>81.6%</td></tr>
-  </tbody>
-</table>
+<p><strong>Conclusion:</strong> Steane's 7-qubit code outperforms Shor's 9-qubit code by approximately 2× at all error rates, while using 2 fewer qubits per logical qubit.</p>
 
 <hr>
 
-<h2>💻 Python Implementation</h2>
-<div class="code-block">
-# Example: Zero-Noise Extrapolation with Mitiq
-from mitiq import zne
-import cirq
-
-def execute_circuit(circuit):
-    return cirq.sample(circuit, repetitions=10000)
-
-# Apply ZNE
-mitigated_result = zne.execute_with_zne(
-    circuit,
-    execute_circuit,
-    scale_factors=[1, 1.5, 2, 3],
-    extrapolate_method="linear"
-)
-</div>
-
-<p><a href="https://github.com/tinkywinkygluestick799-dotcom/quantum-error-mitigation" class="button" target="_blank">🔗 Full Code Repository on GitHub</a></p>
+<h2>Code and Resources</h2>
+<p>
+<strong>GitHub Repository:</strong> <a href="https://github.com/tinkywinkygluestick799-dotcom/quantum-error-correction" target="_blank">https://github.com/tinkywinkygluestick799-dotcom/quantum-error-correction</a>
+</p>
 
 <hr>
 
-<h2>📚 References</h2>
+<h2>References</h2>
 <ul>
-  <li>Temme, K., Bravyi, S., & Gambetta, J. M. (2017). Error mitigation for short-depth quantum circuits. <em>Physical Review Letters</em>, 119(18), 180509.</li>
-  <li>Endo, S., Benjamin, S. C., & Li, Y. (2018). Practical quantum error mitigation for near-future applications. <em>Physical Review X</em>, 8(3), 031027.</li>
-  <li>Giurgica-Tiron, T., et al. (2020). Digital zero noise extrapolation for quantum error mitigation. <em>IEEE QCE 2020</em>, 306-316.</li>
-  <li>van den Berg, E., et al. (2022). Probabilistic error cancellation with sparse Pauli-Lindblad models. <em>arXiv:2201.09866</em>.</li>
+<li>Shor, P. W. (1995). Scheme for reducing decoherence in quantum computer memory. <em>Physical Review A</em>, 52(4), R2493.</li>
+<li>Steane, A. M. (1996). Error correcting codes in quantum theory. <em>Physical Review Letters</em>, 77(5), 793.</li>
+<li>Nielsen, M. A., & Chuang, I. L. (2010). <em>Quantum Computation and Quantum Information</em>. Cambridge University Press.</li>
 </ul>
 
 <hr>
 
-<p style="text-align: center;">
-  <a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a>
-  <a href="#" class="button">📄 Download PDF (Coming Soon)</a>
-</p>
+<p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
 
 <footer>
-  <p>© 2026 Alishba | Quantum Error Mitigation Research</p>
-  <p>This research was conducted using IBM Quantum devices through the IBM Quantum Researcher Program.</p>
+<p>© 2026 Alishba | Quantum Error Correction Research</p>
 </footer>
 
 </body>
