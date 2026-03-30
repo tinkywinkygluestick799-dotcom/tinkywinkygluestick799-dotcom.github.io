@@ -24,9 +24,6 @@
     border-bottom: 3px solid #4f46e5;
     padding-bottom: 10px;
   }
-  h3 {
-    color: #4f46e5;
-  }
   .button {
     background-color: #4f46e5;
     color: white;
@@ -65,12 +62,6 @@
   .graph-container img {
     max-width: 100%;
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
-  }
-  .graph-container p {
-    margin-top: 15px;
-    color: #4b5563;
-    font-style: italic;
   }
   footer {
     margin-top: 60px;
@@ -78,15 +69,6 @@
     color: #6b7280;
     padding-top: 30px;
     border-top: 1px solid #c7d2fe;
-  }
-  .code-block {
-    background: #1e1e2e;
-    color: #d4d4d4;
-    padding: 15px;
-    border-radius: 12px;
-    font-family: monospace;
-    overflow-x: auto;
-    margin: 20px 0;
   }
 </style>
 </head>
@@ -105,46 +87,41 @@
 
 <h2>📋 Abstract</h2>
 <p>
-This research presents a comprehensive analysis of quantum error mitigation techniques for Noisy Intermediate-Scale Quantum (NISQ) devices. We implement and benchmark three state-of-the-art methods: <strong>Zero-Noise Extrapolation (ZNE)</strong>, <strong>Probabilistic Error Cancellation (PEC)</strong>, and <strong>Readout Error Mitigation</strong>. Our experiments on IBM's <em>ibm_osaka</em> quantum processor demonstrate that combined mitigation strategies reduce expectation value errors by <strong>up to 76%</strong> compared to unmitigated results, enabling practical quantum computations on current hardware.
+This research presents a comprehensive analysis of quantum error mitigation techniques for Noisy Intermediate-Scale Quantum (NISQ) devices. We implement and benchmark three state-of-the-art methods: <strong>Zero-Noise Extrapolation (ZNE)</strong>, <strong>Probabilistic Error Cancellation (PEC)</strong>, and <strong>Readout Error Mitigation</strong>. Our experiments on IBM's <em>ibm_osaka</em> quantum processor demonstrate that combined mitigation strategies reduce expectation value errors by <strong>up to 76%</strong> compared to unmitigated results.
 </p>
 
 <hr>
 
 <h2>📊 Experimental Results</h2>
 
-<!-- Graph 1 -->
 <div class="graph-container">
   <h3>Figure 1: Zero-Noise Extrapolation Performance</h3>
-  <img src="zne_performance.png" alt="ZNE Performance Graph" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+1:+ZNE+Performance'; this.onerror=null;">
-  <p><strong>Finding:</strong> ZNE reduces error by 70-82% across all circuit depths. Exponential extrapolation slightly outperforms linear methods, especially at greater depths.</p>
+  <img src="zne_performance.png" alt="ZNE Performance Graph">
+  <p><em>ZNE reduces error by 70-82% across all circuit depths.</em></p>
 </div>
 
-<!-- Graph 2 -->
 <div class="graph-container">
   <h3>Figure 2: Error Mitigation Techniques Comparison</h3>
-  <img src="techniques_comparison.png" alt="Techniques Comparison" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+2:+Techniques+Comparison'; this.onerror=null;">
-  <p><strong>Finding:</strong> Combined ZNE + readout mitigation achieves the lowest error rate at 6.5%, representing an 89% reduction from unmitigated results.</p>
+  <img src="techniques_comparison.png" alt="Techniques Comparison">
+  <p><em>Combined mitigation achieves the lowest error rate at 6.5%.</em></p>
 </div>
 
-<!-- Graph 3 -->
 <div class="graph-container">
   <h3>Figure 3: ZNE Error Reduction by Circuit Depth</h3>
-  <img src="improvement_by_depth.png" alt="Improvement by Depth" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+3:+Improvement+by+Depth'; this.onerror=null;">
-  <p><strong>Finding:</strong> Error reduction remains above 70% even at depth 40, demonstrating ZNE's effectiveness for deep quantum circuits.</p>
+  <img src="improvement_by_depth.png" alt="Improvement by Depth">
+  <p><em>Error reduction remains above 70% even at depth 40.</em></p>
 </div>
 
-<!-- Graph 4 -->
 <div class="graph-container">
   <h3>Figure 4: Combined Mitigation Strategy</h3>
-  <img src="combined_mitigation.png" alt="Combined Mitigation" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+4:+Combined+Mitigation'; this.onerror=null;">
-  <p><strong>Finding:</strong> ZNE + readout mitigation consistently outperforms either technique alone across all circuit depths tested.</p>
+  <img src="combined_mitigation.png" alt="Combined Mitigation">
+  <p><em>ZNE + readout mitigation outperforms either technique alone.</em></p>
 </div>
 
-<!-- Graph 5 -->
 <div class="graph-container">
   <h3>Figure 5: Sampling Overhead vs. Error Reduction Trade-off</h3>
-  <img src="overhead_tradeoff.png" alt="Overhead Trade-off" onerror="this.src='https://via.placeholder.com/800x400?text=Graph+5:+Overhead+Trade-off'; this.onerror=null;">
-  <p><strong>Finding:</strong> PEC provides the highest error reduction (87%) but at significant sampling overhead (up to 9×). ZNE offers a better balance for practical applications.</p>
+  <img src="overhead_tradeoff.png" alt="Overhead Trade-off">
+  <p><em>PEC provides the highest error reduction but at significant sampling overhead cost.</em></p>
 </div>
 
 <hr>
@@ -153,50 +130,20 @@ This research presents a comprehensive analysis of quantum error mitigation tech
 
 <h3>Zero-Noise Extrapolation Performance</h3>
 <table>
-  <thead>
-    <tr><th>Circuit Depth</th><th>Unmitigated Error</th><th>ZNE (Linear)</th><th>ZNE (Exponential)</th><th>Improvement</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>10</td><td>23.4%</td><td>4.1%</td><td>3.8%</td><td>82.5%</td></tr>
-    <tr><td>20</td><td>41.2%</td><td>8.7%</td><td>7.9%</td><td>78.9%</td></tr>
-    <tr><td>30</td><td>58.7%</td><td>14.2%</td><td>12.8%</td><td>75.8%</td></tr>
-    <tr><td>40</td><td>72.3%</td><td>21.5%</td><td>19.3%</td><td>70.3%</td></tr>
-  </tbody>
+  <tr><th>Depth</th><th>Unmitigated</th><th>ZNE (Linear)</th><th>ZNE (Exp)</th><th>Improvement</th></tr>
+  <tr><td>10</td><td>23.4%</td><td>4.1%</td><td>3.8%</td><td>82.5%</td></tr>
+  <tr><td>20</td><td>41.2%</td><td>8.7%</td><td>7.9%</td><td>78.9%</td></tr>
+  <tr><td>30</td><td>58.7%</td><td>14.2%</td><td>12.8%</td><td>75.8%</td></tr>
+  <tr><td>40</td><td>72.3%</td><td>21.5%</td><td>19.3%</td><td>70.3%</td></tr>
 </table>
 
-<h3>Combined Mitigation Strategy (ZNE + Readout)</h3>
+<h3>Combined Mitigation (ZNE + Readout)</h3>
 <table>
-  <thead>
-    <tr><th>Circuit Depth</th><th>ZNE Only</th><th>Readout Only</th><th>ZNE + Readout</th><th>Improvement</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>10</td><td>4.1%</td><td>12.3%</td><td>3.2%</td><td>86.3%</td></tr>
-    <tr><td>20</td><td>8.7%</td><td>24.1%</td><td>6.5%</td><td>84.2%</td></tr>
-    <tr><td>30</td><td>14.2%</td><td>35.6%</td><td>10.8%</td><td>81.6%</td></tr>
-  </tbody>
+  <tr><th>Depth</th><th>ZNE Only</th><th>Readout Only</th><th>ZNE + Readout</th><th>Improvement</th></tr>
+  <tr><td>10</td><td>4.1%</td><td>12.3%</td><td>3.2%</td><td>86.3%</td></tr>
+  <tr><td>20</td><td>8.7%</td><td>24.1%</td><td>6.5%</td><td>84.2%</td></tr>
+  <tr><td>30</td><td>14.2%</td><td>35.6%</td><td>10.8%</td><td>81.6%</td></tr>
 </table>
-
-<hr>
-
-<h2>💻 Python Implementation</h2>
-<div class="code-block">
-# Example: Zero-Noise Extrapolation with Mitiq
-from mitiq import zne
-import cirq
-
-def execute_circuit(circuit):
-    return cirq.sample(circuit, repetitions=10000)
-
-# Apply ZNE
-mitigated_result = zne.execute_with_zne(
-    circuit,
-    execute_circuit,
-    scale_factors=[1, 1.5, 2, 3],
-    extrapolate_method="linear"
-)
-</div>
-
-<p><a href="https://github.com/tinkywinkygluestick799-dotcom/quantum-error-mitigation" class="button" target="_blank">🔗 Full Code Repository on GitHub</a></p>
 
 <hr>
 
@@ -204,20 +151,14 @@ mitigated_result = zne.execute_with_zne(
 <ul>
   <li>Temme, K., Bravyi, S., & Gambetta, J. M. (2017). Error mitigation for short-depth quantum circuits. <em>Physical Review Letters</em>, 119(18), 180509.</li>
   <li>Endo, S., Benjamin, S. C., & Li, Y. (2018). Practical quantum error mitigation for near-future applications. <em>Physical Review X</em>, 8(3), 031027.</li>
-  <li>Giurgica-Tiron, T., et al. (2020). Digital zero noise extrapolation for quantum error mitigation. <em>IEEE QCE 2020</em>, 306-316.</li>
-  <li>van den Berg, E., et al. (2022). Probabilistic error cancellation with sparse Pauli-Lindblad models. <em>arXiv:2201.09866</em>.</li>
 </ul>
 
 <hr>
 
-<p style="text-align: center;">
-  <a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a>
-  <a href="#" class="button">📄 Download PDF (Coming Soon)</a>
-</p>
+<p style="text-align: center;"><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
 
 <footer>
-  <p>© 2026 Alishba | Quantum Error Mitigation Research</p>
-  <p>This research was conducted using IBM Quantum devices through the IBM Quantum Researcher Program.</p>
+<p>© 2026 Alishba | Quantum Error Mitigation Research</p>
 </footer>
 
 </body>
