@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Quantum Error Correction | Alishba</title>
+</head>
+
+<body>
+
+<h1>Quantum Error Correction and Stabilizer Codes</h1>
+<p><a href="index.html">← Back to Portfolio</a></p>
+
+<hr>
+
+<h2>Research Overview</h2>
+
+<p>
+Quantum error correction (QEC) is essential for building fault-tolerant quantum computers. This research compares two of the most important QEC codes: <strong>Shor’s 9-qubit code</strong> and <strong>Steane’s 7-qubit code</strong> under depolarizing noise.
+</p>
+
+<hr>
+
+<h2>Motivation</h2>
+
+<p>
+Quantum systems are inherently fragile. Noise from the environment causes qubits to lose information through decoherence. Without error correction, quantum computations cannot scale beyond a few qubits. This project investigates which code performs better under realistic noise conditions and why.
+</p>
+
+<hr>
+
+<h2>Codes Compared</h2>
+
+<h3>Shor’s 9-Qubit Code</h3>
+<p>
+The first quantum error-correcting code discovered. It uses 9 physical qubits to protect 1 logical qubit. It can correct any single-qubit error (bit-flip, phase-flip, or both) by encoding information redundantly.
+</p>
+
+<h3>Steane’s 7-Qubit Code</h3>
+<p>
+A more efficient CSS code derived from the classical Hamming code. It uses only 7 physical qubits per logical qubit. It is also capable of correcting arbitrary single-qubit errors.
+</p>
+
+<hr>
+
+<h2>Methodology</h2>
+
+<ul>
+<li>Implement both codes using Qiskit</li>
+<li>Simulate depolarizing noise at varying error rates</li>
+<li>Measure logical error rate after error correction</li>
+<li>Compare code performance using Monte Carlo simulations</li>
+<li>Analyze overhead vs. protection trade-offs</li>
+</ul>
+
+<hr>
+
+<h2>Results</h2>
+
+<p>
+Preliminary simulations show that Steane’s 7-qubit code achieves lower logical error rates at the same physical error rate compared to Shor’s 9-qubit code, while using fewer qubits. However, Shor’s code has simpler syndrome measurement circuits.
+</p>
+
+<hr>
+
+<h2>Code and Resources</h2>
+<p>
+<a href="#">View Code on GitHub (coming soon)</a>
+</p>
+
+<hr>
+
+<h2>References</h2>
+<ul>
+<li>Shor, P. W. (1995). Scheme for reducing decoherence in quantum computer memory. <em>Physical Review A</em>, 52(4), R2493.</li>
+<li>Steane, A. M. (1996). Error correcting codes in quantum theory. <em>Physical Review Letters</em>, 77(5), 793.</li>
+<li>Nielsen, M. A., & Chuang, I. L. (2010). <em>Quantum Computation and Quantum Information</em>. Cambridge University Press.</li>
+</ul>
+
+<hr>
+
+<p><a href="index.html">← Back to Portfolio</a></p>
+
+</body>
+
+</html>
