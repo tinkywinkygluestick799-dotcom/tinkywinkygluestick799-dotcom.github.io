@@ -4,14 +4,47 @@
 <head>
 <title>Alishba Zafar | AI/ML Research Portfolio</title>
 <style>
+  /* Default Light Mode */
+  :root {
+    --bg-gradient-start: #f8f9ff;
+    --bg-gradient-end: #f0f2fe;
+    --text-color: #1a1a2e;
+    --card-bg: white;
+    --nav-bg: white;
+    --skill-bg: #eef2ff;
+    --skill-text: #4f46e5;
+    --border-color: #c7d2fe;
+    --button-bg: #4f46e5;
+    --button-hover: #6366f1;
+    --statement-bg: #eef2ff;
+    --footer-text: #6b7280;
+  }
+
+  /* Dark Mode */
+  body.dark {
+    --bg-gradient-start: #0f172a;
+    --bg-gradient-end: #1e1b4b;
+    --text-color: #e2e8f0;
+    --card-bg: #1e293b;
+    --nav-bg: #1e293b;
+    --skill-bg: #334155;
+    --skill-text: #a5b4fc;
+    --border-color: #334155;
+    --button-bg: #6366f1;
+    --button-hover: #818cf8;
+    --statement-bg: #1e293b;
+    --footer-text: #94a3b8;
+  }
+
   body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2fe 100%);
-    color: #1a1a2e;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    color: var(--text-color);
     line-height: 1.6;
+    transition: all 0.3s ease;
   }
   h1 {
     color: #4f46e5;
@@ -21,9 +54,9 @@
     margin-bottom: 10px;
   }
   h2 {
-    color: #1e1b4b;
+    color: var(--text-color);
     margin-top: 40px;
-    border-bottom: 2px solid #c7d2fe;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 8px;
   }
   h3 {
@@ -40,7 +73,7 @@
     text-decoration: underline;
   }
   .button {
-    background-color: #4f46e5;
+    background-color: var(--button-bg);
     color: white;
     padding: 8px 20px;
     border-radius: 25px;
@@ -50,35 +83,51 @@
     transition: background 0.2s;
   }
   .button:hover {
-    background-color: #6366f1;
+    background-color: var(--button-hover);
     text-decoration: none;
     transform: scale(1.02);
   }
+  .dark-mode-btn {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin-bottom: 20px;
+  }
+  .dark-mode-btn:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.02);
+  }
   .research-card {
-    background: white;
+    background: var(--card-bg);
     padding: 20px 25px;
     border-radius: 20px;
     margin-top: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .research-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
   nav {
-    background: white;
+    background: var(--nav-bg);
     padding: 12px 20px;
     border-radius: 50px;
     margin: 25px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   nav a {
     margin: 0 15px;
     font-weight: 600;
   }
   .skills {
-    background: white;
+    background: var(--card-bg);
     padding: 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -91,15 +140,15 @@
     padding: 0;
   }
   .skills li {
-    background: #eef2ff;
+    background: var(--skill-bg);
     padding: 6px 14px;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #4f46e5;
+    color: var(--skill-text);
   }
   .contact-links {
-    background: white;
+    background: var(--card-bg);
     padding: 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -110,7 +159,7 @@
     display: inline-block;
   }
   .publications {
-    background: white;
+    background: var(--card-bg);
     padding: 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -126,21 +175,21 @@
     margin: 30px 0;
     border: none;
     height: 1px;
-    background: linear-gradient(to right, #c7d2fe, transparent);
+    background: linear-gradient(to right, var(--border-color), transparent);
   }
   footer {
     text-align: center;
     margin-top: 50px;
-    color: #6b7280;
+    color: var(--footer-text);
     font-size: 0.85rem;
   }
   .research-statement {
-    background: #eef2ff;
+    background: var(--statement-bg);
     padding: 15px 20px;
     border-radius: 16px;
     margin: 20px 0;
     font-weight: 500;
-    color: #1e1b4b;
+    color: var(--text-color);
   }
   @media (max-width: 600px) {
     body { padding: 20px; }
@@ -152,6 +201,10 @@
 </head>
 
 <body>
+
+<div style="display: flex; justify-content: flex-end;">
+  <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</div>
 
 <h1>Alishba Zafar</h1>
 <p style="font-size: 1.2rem; color: #4f46e5;">Student Researcher in Artificial Intelligence & Machine Learning</p>
@@ -231,6 +284,18 @@ I am a student researcher with a strong interest in artificial intelligence, mac
   <p>© 2026 Alishba Zafar | AI/ML Research Portfolio</p>
   <p>📅 Last updated: May 2026</p>
 </footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const btn = document.querySelector('.dark-mode-btn');
+    if (document.body.classList.contains('dark')) {
+      btn.innerHTML = '☀️ Light Mode';
+    } else {
+      btn.innerHTML = '🌙 Dark Mode';
+    }
+  }
+</script>
 
 </body>
 
