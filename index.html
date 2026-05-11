@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>Alishba Zafar | AI/ML Research Portfolio</title>
+<title>Alishba Zafar | AI/ML & Quantum Research</title>
 <style>
   /* Default Light Mode */
   :root {
@@ -18,6 +18,7 @@
     --button-hover: #6366f1;
     --statement-bg: #eef2ff;
     --footer-text: #6b7280;
+    --section-title: #1e1b4b;
   }
 
   /* Dark Mode */
@@ -34,6 +35,7 @@
     --button-hover: #818cf8;
     --statement-bg: #1e293b;
     --footer-text: #94a3b8;
+    --section-title: #c7d2fe;
   }
 
   body {
@@ -54,7 +56,7 @@
     margin-bottom: 10px;
   }
   h2 {
-    color: var(--text-color);
+    color: var(--section-title);
     margin-top: 40px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 8px;
@@ -114,6 +116,15 @@
   .research-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .section-badge {
+    display: inline-block;
+    background: #4f46e5;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
   }
   nav {
     background: var(--nav-bg);
@@ -207,24 +218,29 @@
 </div>
 
 <h1>Alishba Zafar</h1>
-<p style="font-size: 1.2rem; color: #4f46e5;">Student Researcher in Artificial Intelligence & Machine Learning</p>
+<p style="font-size: 1.2rem; color: #4f46e5;">Researcher in Artificial Intelligence & Quantum Computing</p>
 
 <div class="research-statement">
-  🤖 Research focus: Computer Vision | Natural Language Processing | Explainable AI | Python for ML
+  🤖 Research focus: Machine Learning | Computer Vision | NLP | Quantum Error Correction | NISQ Computing
 </div>
 
 <nav>
 <a href="index.html">Home</a>
-<a href="ml-image-classification.html">Image Classification</a>
-<a href="nlp-sentiment.html">NLP Sentiment</a>
-<a href="explainable-ai.html">Explainable AI</a>
+<span style="color: var(--border-color);">|</span>
+<a href="ml-image-classification.html">AI: Image Classification</a>
+<a href="nlp-sentiment.html">AI: NLP Sentiment</a>
+<a href="explainable-ai.html">AI: XAI</a>
+<span style="color: var(--border-color);">|</span>
+<a href="error-correction.html">Quantum: Error Correction</a>
+<a href="error-mitigation.html">Quantum: Error Mitigation</a>
+<a href="projects.html">Quantum: Qiskit</a>
 </nav>
 
 <hr>
 
 <h2>About Me</h2>
 <p>
-I am a student researcher with a strong interest in artificial intelligence, machine learning, and data science. My work focuses on image classification, natural language processing, and explainable AI. I aim to build models that are not only accurate but also interpretable and trustworthy.
+I am a student researcher with interests in artificial intelligence, machine learning, quantum computing, and theoretical physics. My work spans both classical AI/ML (image classification, NLP, explainable AI) and quantum information (error correction, error mitigation, Qiskit simulations). I aim to bridge the gap between classical and quantum machine learning.
 </p>
 
 <div class="skills">
@@ -235,36 +251,71 @@ I am a student researcher with a strong interest in artificial intelligence, mac
     <li>PyTorch</li>
     <li>Scikit-learn</li>
     <li>Pandas / NumPy</li>
-    <li>Matplotlib / Seaborn</li>
     <li>NLP (Transformers, BERT)</li>
+    <li>Qiskit</li>
+    <li>Quantum Error Correction</li>
     <li>Git / GitHub</li>
   </ul>
 </div>
 
+<!-- ========== AI/ML SECTION (MAIN FOCUS) ========== -->
+<h2>🤖 Artificial Intelligence & Machine Learning</h2>
+
 <div class="research-card">
+  <div class="section-badge">AI / Computer Vision</div>
   <h3>Image Classification with CNNs</h3>
   <p>Builds and compares Convolutional Neural Networks (CNNs) with traditional classifiers like Random Forest on the MNIST and CIFAR-10 datasets.</p>
   <a href="ml-image-classification.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
+  <div class="section-badge">AI / Natural Language Processing</div>
   <h3>Sentiment Analysis with NLP</h3>
   <p>Implements and compares LSTM networks and BERT transformers for sentiment analysis on movie reviews (IMDb dataset).</p>
   <a href="nlp-sentiment.html" class="button">View Project Details →</a>
 </div>
 
 <div class="research-card">
+  <div class="section-badge">AI / Explainable AI</div>
   <h3>Explainable AI (XAI)</h3>
   <p>Uses SHAP and LIME to explain model predictions, making black-box AI models more transparent and trustworthy.</p>
   <a href="explainable-ai.html" class="button">View Research Details →</a>
 </div>
 
+<!-- ========== PHYSICS/QUANTUM SECTION (SECONDARY) ========== -->
+<h2>⚛️ Quantum Computing & Physics</h2>
+
+<div class="research-card">
+  <div class="section-badge">Quantum Error Correction</div>
+  <h3>Quantum Error Correction and Stabilizer Codes</h3>
+  <p>Compares Shor's 9-qubit code and Steane's 7-qubit code under depolarizing noise. Combines mathematical analysis with Python-based simulations using Qiskit.</p>
+  <a href="error-correction.html" class="button">View Research Details →</a>
+</div>
+
+<div class="research-card">
+  <div class="section-badge">Quantum Error Mitigation</div>
+  <h3>Quantum Error Mitigation for Near-Term Devices</h3>
+  <p>Develops and benchmarks error mitigation techniques (zero-noise extrapolation, probabilistic error cancellation) for NISQ devices to enable meaningful quantum computations.</p>
+  <a href="error-mitigation.html" class="button">View Research Details →</a>
+</div>
+
+<div class="research-card">
+  <div class="section-badge">Quantum Simulation</div>
+  <h3>Quantum Circuit Simulation with Qiskit</h3>
+  <p>Explores quantum circuit optimization and simulation using IBM's Qiskit framework. Implements Deutsch-Jozsa, Grover's search, and teleportation with noise analysis.</p>
+  <a href="projects.html" class="button">View Project Details →</a>
+</div>
+
+<!-- ========== RESEARCH PROJECTS LIST ========== -->
 <div class="publications">
   <h3 style="margin-top: 0;">📋 Research Projects</h3>
   <ul>
     <li><strong>Alishba Zafar</strong>. (2026). Image Classification on CIFAR-10: CNN vs Random Forest. <em>Independent research project</em>.</li>
     <li><strong>Alishba Zafar</strong>. (2026). Sentiment Analysis on IMDb Reviews: LSTM vs BERT. <em>Independent research project</em>.</li>
     <li><strong>Alishba Zafar</strong>. (2026). Explainable AI with SHAP and LIME. <em>Independent research project</em>.</li>
+    <li><strong>Alishba Zafar</strong>. (2026). Quantum Error Mitigation for NISQ Devices. <em>Independent research project</em>.</li>
+    <li><strong>Alishba Zafar</strong>. (2025). Comparative Analysis of Shor's 9-Qubit and Steane's 7-Qubit Error Correction Codes. <em>Independent research project</em>.</li>
+    <li><strong>Alishba Zafar</strong>. (2025). Quantum Circuit Simulation with Qiskit. <em>Independent research project</em>.</li>
   </ul>
 </div>
 
@@ -276,12 +327,12 @@ I am a student researcher with a strong interest in artificial intelligence, mac
     <a href="#">🔗 LinkedIn (Coming Soon)</a>
   </p>
   <p style="font-size: 0.85rem; margin-top: 10px;">
-    📍 Open to research collaborations and discussions about AI/ML
+    📍 Open to research collaborations in AI/ML and quantum computing
   </p>
 </div>
 
 <footer>
-  <p>© 2026 Alishba Zafar | AI/ML Research Portfolio</p>
+  <p>© 2026 Alishba Zafar | AI/ML & Quantum Research Portfolio</p>
   <p>📅 Last updated: May 2026</p>
 </footer>
 
