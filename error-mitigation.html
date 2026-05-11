@@ -2,23 +2,74 @@
 <html>
 
 <head>
-<title>Quantum Error Mitigation | Alishba</title>
+<title>Quantum Error Mitigation | Alishba Zafar</title>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 40px 20px; background: #f8f9ff; color: #1a1a2e; line-height: 1.6; }
+  :root {
+    --bg-color: #f8f9ff;
+    --text-color: #1a1a2e;
+    --card-bg: white;
+    --border-color: #c7d2fe;
+    --button-bg: #4f46e5;
+    --button-hover: #6366f1;
+    --table-header: #4f46e5;
+    --footer-text: #6b7280;
+  }
+  body.dark {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+    --button-bg: #6366f1;
+    --button-hover: #818cf8;
+    --table-header: #818cf8;
+    --footer-text: #94a3b8;
+  }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+  }
   h1 { color: #4f46e5; border-left: 5px solid #4f46e5; padding-left: 20px; }
-  h2 { color: #1e1b4b; margin-top: 40px; border-bottom: 3px solid #4f46e5; padding-bottom: 10px; }
-  .button { background-color: #4f46e5; color: white; padding: 10px 24px; border-radius: 30px; text-decoration: none; display: inline-block; margin: 10px 10px 10px 0; }
-  .button:hover { background-color: #6366f1; }
-  table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; }
-  th, td { border: 1px solid #c7d2fe; padding: 12px; text-align: left; }
-  th { background: #4f46e5; color: white; }
-  .graph-container { background: white; border-radius: 16px; padding: 20px; margin: 25px 0; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  h2 { color: var(--text-color); margin-top: 40px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
+  .button {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+  }
+  .button:hover { background-color: var(--button-hover); }
+  .dark-mode-btn {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--card-bg); }
+  th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; }
+  th { background: var(--table-header); color: white; }
+  .graph-container { background: var(--card-bg); border-radius: 16px; padding: 20px; margin: 25px 0; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
   .graph-container img { max-width: 100%; border-radius: 8px; }
-  footer { margin-top: 60px; text-align: center; color: #6b7280; }
+  footer { margin-top: 60px; text-align: center; color: var(--footer-text); }
 </style>
 </head>
 
 <body>
+
+<div style="display: flex; justify-content: flex-end;">
+  <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</div>
 
 <h1>🔬 Quantum Error Mitigation for Near-Term Devices</h1>
 <p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
@@ -50,35 +101,20 @@
 
 <hr>
 
-<h2>🚀 Next Research Directions</h2>
-<ul>
-  <li>Combining ZNE + PEC + readout for optimal performance</li>
-  <li>Adaptive mitigation based on circuit characteristics</li>
-  <li>Application to VQE for chemistry problems</li>
-  <li>Benchmarking across IBM, IonQ, Rigetti</li>
-</ul>
-
-<hr>
-
 <h2>Code and Resources</h2>
-<p>
-  <strong>GitHub Repository:</strong> 
-  <a href="https://github.com/tinkywinkygluestick799-dotcom/quantum-error-mitigation" target="_blank">
-    https://github.com/tinkywinkygluestick799-dotcom/quantum-error-mitigation
-  </a>
-</p>
-
-<hr>
-
-<h2>References</h2>
-<ul>
-  <li>Temme, K., Bravyi, S., & Gambetta, J. M. (2017). Error mitigation for short-depth quantum circuits. <em>Physical Review Letters</em>, 119(18).</li>
-  <li>Endo, S., Benjamin, S. C., & Li, Y. (2018). Practical quantum error mitigation. <em>Physical Review X</em>, 8(3).</li>
-</ul>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/tinkywinkygluestick799-dotcom/quantum-error-mitigation" target="_blank">github.com/.../quantum-error-mitigation</a></p>
 
 <hr>
 
 <p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
-<footer>© 2026 Alishba | Quantum Error Mitigation Research</footer>
+<footer>© 2026 Alishba Zafar | Quantum Error Mitigation Research</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const btn = document.querySelector('.dark-mode-btn');
+    btn.innerHTML = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  }
+</script>
 </body>
 </html>
