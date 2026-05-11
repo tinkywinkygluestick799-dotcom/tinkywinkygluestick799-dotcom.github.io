@@ -1,27 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Qiskit Quantum Simulations | Alishba Zafar</title>
+<style>
+  :root {
+    --bg-color: #f8f9ff;
+    --text-color: #1a1a2e;
+    --card-bg: white;
+    --border-color: #c7d2fe;
+    --button-bg: #4f46e5;
+    --button-hover: #6366f1;
+    --table-header: #4f46e5;
+    --footer-text: #6b7280;
+  }
+  body.dark {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+    --button-bg: #6366f1;
+    --button-hover: #818cf8;
+    --table-header: #818cf8;
+    --footer-text: #94a3b8;
+  }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+  }
+  h1 { color: #4f46e5; border-left: 5px solid #4f46e5; padding-left: 20px; }
+  h2 { color: var(--text-color); margin-top: 40px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
+  .button {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+  }
+  .button:hover { background-color: var(--button-hover); }
+  .dark-mode-btn {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--card-bg); }
+  th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; }
+  th { background: var(--table-header); color: white; }
+  footer { margin-top: 60px; text-align: center; color: var(--footer-text); }
+</style>
+</head>
+
+<body>
+
+<div style="display: flex; justify-content: flex-end;">
+  <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</div>
+
+<h1>Quantum Circuit Simulation with Qiskit</h1>
+<p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
+
+<hr>
+
+<h2>Project Overview</h2>
+<p>This project implements fundamental quantum algorithms using IBM's Qiskit framework.</p>
+
+<h3>Algorithms Implemented:</h3>
+<ul>
+  <li><strong>Deutsch-Jozsa Algorithm</strong> — Exponential speedup for function classification</li>
+  <li><strong>Grover's Search Algorithm</strong> — Quadratic speedup for unstructured search</li>
+  <li><strong>Quantum Teleportation</strong> — State transfer using entanglement</li>
+</ul>
+
+<hr>
+
 <h2>📊 Results</h2>
 <table>
-  <tr><th>Circuit</th><th>Simulator Fidelity</th><th>Hardware Fidelity</th> </tr>
-  <tr><td>Deutsch-Jozsa (n=4)</td><td>99.8%</td><td>86.2%</td> </tr>
-  <tr><td>Grover (n=3)</td><td>94.7%</td><td>78.3%</td> </tr>
-  <tr><td>Teleportation</td><td>99.2%</td><td>91.5%</td> </tr>
+  <tr><th>Circuit</th><th>Simulator Fidelity</th><th>Hardware Fidelity</th></tr>
+  <tr><td>Deutsch-Jozsa (n=4)</td><td>99.8%</td><td>86.2%</td></tr>
+  <tr><td>Grover (n=3)</td><td>94.7%</td><td>78.3%</td></tr>
+  <tr><td>Teleportation</td><td>99.2%</td><td>91.5%</td></tr>
 </table>
 
 <hr>
 
 <h2>Code and Resources</h2>
-<p>📁 <strong>Code will be available soon</strong> — I'm preparing the GitHub repository.</p>
-
-<hr>
-
-<h2>References</h2>
-<ul>
-  <li>Deutsch, D., & Jozsa, R. (1992). Rapid solution of problems by quantum computation. <em>Proceedings of the Royal Society A</em>.</li>
-  <li>Grover, L. K. (1996). A fast quantum mechanical algorithm for database search. <em>STOC '96</em>.</li>
-</ul>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/tinkywinkygluestick799-dotcom/qiskit-quantum-simulations" target="_blank">github.com/.../qiskit-quantum-simulations</a></p>
 
 <hr>
 
 <p><a href="index.html" class="button" style="background:#6b7280;">← Back to Portfolio</a></p>
-<footer>© 2026 Alishba | Qiskit Quantum Simulations</footer>
+<footer>© 2026 Alishba Zafar | Qiskit Quantum Simulations</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const btn = document.querySelector('.dark-mode-btn');
+    btn.innerHTML = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  }
+</script>
 </body>
 </html>
