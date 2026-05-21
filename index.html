@@ -4,49 +4,47 @@
 <head>
 <title>Alishba Zafar | AI/ML & Quantum Research</title>
 <style>
-  /* Default Light Mode */
-  :root {
-    --bg-gradient-start: #f8f9ff;
-    --bg-gradient-end: #f0f2fe;
-    --text-color: #1a1a2e;
-    --card-bg: white;
-    --nav-bg: white;
-    --skill-bg: #eef2ff;
-    --skill-text: #4f46e5;
-    --border-color: #c7d2fe;
-    --button-bg: #4f46e5;
-    --button-hover: #6366f1;
-    --statement-bg: #eef2ff;
-    --footer-text: #6b7280;
-    --section-title: #1e1b4b;
+  /* Light Mode (default) */
+  body {
+    background: linear-gradient(135deg, #f8f9ff, #f0f2fe);
+    color: #1a1a2e;
   }
-
-  /* Dark Mode */
   body.dark {
-    --bg-gradient-start: #0f172a;
-    --bg-gradient-end: #1e1b4b;
-    --text-color: #e2e8f0;
-    --card-bg: #1e293b;
-    --nav-bg: #1e293b;
-    --skill-bg: #334155;
-    --skill-text: #a5b4fc;
-    --border-color: #334155;
-    --button-bg: #6366f1;
-    --button-hover: #818cf8;
-    --statement-bg: #1e293b;
-    --footer-text: #94a3b8;
-    --section-title: #c7d2fe;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    color: #e2e8f0;
+  }
+  body.dark .research-card,
+  body.dark .skills,
+  body.dark .contact-links,
+  body.dark .publications,
+  body.dark .blog-post,
+  body.dark .newsletter-box,
+  body.dark nav {
+    background: #1e293b;
+    color: #e2e8f0;
+  }
+  body.dark .skills li {
+    background: #334155;
+    color: #a5b4fc;
+  }
+  body.dark .research-statement {
+    background: #1e293b;
+    color: #e2e8f0;
+  }
+  body.dark hr {
+    background: linear-gradient(to right, #334155, transparent);
+  }
+  body.dark footer {
+    color: #94a3b8;
   }
 
   body {
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-family: system-ui, sans-serif;
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-    color: var(--text-color);
-    line-height: 1.6;
     transition: all 0.3s ease;
+    line-height: 1.6;
   }
   h1 {
     color: #4f46e5;
@@ -56,9 +54,8 @@
     margin-bottom: 10px;
   }
   h2 {
-    color: var(--section-title);
     margin-top: 40px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid #c7d2fe;
     padding-bottom: 8px;
   }
   h3 {
@@ -75,7 +72,7 @@
     text-decoration: underline;
   }
   .button {
-    background-color: var(--button-bg);
+    background-color: #4f46e5;
     color: white;
     padding: 8px 20px;
     border-radius: 25px;
@@ -85,60 +82,50 @@
     transition: background 0.2s;
   }
   .button:hover {
-    background-color: var(--button-hover);
+    background-color: #6366f1;
     text-decoration: none;
     transform: scale(1.02);
   }
   .dark-mode-btn {
-    background-color: var(--button-bg);
+    background-color: #4f46e5;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 20px;
     border-radius: 25px;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     transition: background 0.2s;
     margin-bottom: 20px;
   }
   .dark-mode-btn:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.02);
+    background-color: #6366f1;
   }
-  .research-card {
-    background: var(--card-bg);
+  .research-card, .blog-post, .newsletter-box {
+    background: white;
     padding: 20px 25px;
     border-radius: 20px;
     margin-top: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .research-card:hover {
+  .research-card:hover, .blog-post:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-  .section-badge {
-    display: inline-block;
-    background: #4f46e5;
-    color: white;
-    font-size: 0.7rem;
-    padding: 2px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   }
   nav {
-    background: var(--nav-bg);
+    background: white;
     padding: 12px 20px;
     border-radius: 50px;
     margin: 25px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
   nav a {
     margin: 0 15px;
     font-weight: 600;
   }
   .skills {
-    background: var(--card-bg);
+    background: white;
     padding: 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -151,15 +138,15 @@
     padding: 0;
   }
   .skills li {
-    background: var(--skill-bg);
+    background: #eef2ff;
     padding: 6px 14px;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--skill-text);
+    color: #4f46e5;
   }
   .contact-links {
-    background: var(--card-bg);
+    background: white;
     padding: 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -170,7 +157,7 @@
     display: inline-block;
   }
   .publications {
-    background: var(--card-bg);
+    background: white;
     padding: 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -186,34 +173,72 @@
     margin: 30px 0;
     border: none;
     height: 1px;
-    background: linear-gradient(to right, var(--border-color), transparent);
+    background: linear-gradient(to right, #c7d2fe, transparent);
   }
   footer {
     text-align: center;
     margin-top: 50px;
-    color: var(--footer-text);
+    color: #6b7280;
     font-size: 0.85rem;
   }
   .research-statement {
-    background: var(--statement-bg);
+    background: #eef2ff;
     padding: 15px 20px;
     border-radius: 16px;
     margin: 20px 0;
     font-weight: 500;
-    color: var(--text-color);
+    color: #1e1b4b;
+  }
+  .section-badge {
+    display: inline-block;
+    background: #4f46e5;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .blog-date {
+    color: #6b7280;
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  .newsletter-box input {
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #c7d2fe;
+    width: 250px;
+    max-width: 70%;
+    margin-right: 10px;
+  }
+  .newsletter-box button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  .view-counter {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 10px;
   }
   @media (max-width: 600px) {
     body { padding: 20px; }
     h1 { font-size: 1.8rem; }
     nav a { margin: 0 8px; }
     .skills li { font-size: 0.75rem; }
+    .newsletter-box input { width: 100%; margin-bottom: 10px; }
   }
 </style>
 </head>
 
 <body>
 
-<div style="display: flex; justify-content: flex-end;">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <div class="view-counter" id="viewCounter"></div>
   <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 </div>
 
@@ -226,11 +251,11 @@
 
 <nav>
 <a href="index.html">Home</a>
-<span style="color: var(--border-color);">|</span>
+<span>|</span>
 <a href="ml-image-classification.html">AI: Image Classification</a>
 <a href="nlp-sentiment.html">AI: NLP Sentiment</a>
 <a href="explainable-ai.html">AI: XAI</a>
-<span style="color: var(--border-color);">|</span>
+<span>|</span>
 <a href="error-correction.html">Quantum: Error Correction</a>
 <a href="error-mitigation.html">Quantum: Error Mitigation</a>
 <a href="projects.html">Quantum: Qiskit</a>
@@ -240,7 +265,7 @@
 
 <h2>About Me</h2>
 <p>
-I am a student researcher with interests in artificial intelligence, machine learning, quantum computing, and theoretical physics. My work spans both classical AI/ML (image classification, NLP, explainable AI) and quantum information (error correction, error mitigation, Qiskit simulations). I aim to bridge the gap between classical and quantum machine learning.
+I am a student researcher with interests in artificial intelligence, machine learning, quantum computing, and theoretical physics. My work spans both classical AI/ML and quantum information.
 </p>
 
 <div class="skills">
@@ -250,7 +275,6 @@ I am a student researcher with interests in artificial intelligence, machine lea
     <li>TensorFlow / Keras</li>
     <li>PyTorch</li>
     <li>Scikit-learn</li>
-    <li>Pandas / NumPy</li>
     <li>NLP (Transformers, BERT)</li>
     <li>Qiskit</li>
     <li>Quantum Error Correction</li>
@@ -258,64 +282,96 @@ I am a student researcher with interests in artificial intelligence, machine lea
   </ul>
 </div>
 
-<!-- ========== AI/ML SECTION (MAIN FOCUS) ========== -->
+<!-- AI/ML SECTION -->
 <h2>🤖 Artificial Intelligence & Machine Learning</h2>
 
 <div class="research-card">
   <div class="section-badge">AI / Computer Vision</div>
   <h3>Image Classification with CNNs</h3>
-  <p>Builds and compares Convolutional Neural Networks (CNNs) with traditional classifiers like Random Forest on the MNIST and CIFAR-10 datasets.</p>
+  <p>Compares CNNs with Random Forest on MNIST and CIFAR-10 datasets.</p>
   <a href="ml-image-classification.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">AI / Natural Language Processing</div>
   <h3>Sentiment Analysis with NLP</h3>
-  <p>Implements and compares LSTM networks and BERT transformers for sentiment analysis on movie reviews (IMDb dataset).</p>
+  <p>Compares LSTM and BERT on IMDb movie reviews.</p>
   <a href="nlp-sentiment.html" class="button">View Project Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">AI / Explainable AI</div>
   <h3>Explainable AI (XAI)</h3>
-  <p>Uses SHAP and LIME to explain model predictions, making black-box AI models more transparent and trustworthy.</p>
+  <p>Uses SHAP and LIME to explain model predictions.</p>
   <a href="explainable-ai.html" class="button">View Research Details →</a>
 </div>
 
-<!-- ========== PHYSICS/QUANTUM SECTION (SECONDARY) ========== -->
+<!-- QUANTUM SECTION -->
 <h2>⚛️ Quantum Computing & Physics</h2>
 
 <div class="research-card">
   <div class="section-badge">Quantum Error Correction</div>
   <h3>Quantum Error Correction and Stabilizer Codes</h3>
-  <p>Compares Shor's 9-qubit code and Steane's 7-qubit code under depolarizing noise. Combines mathematical analysis with Python-based simulations using Qiskit.</p>
+  <p>Compares Shor's 9-qubit code and Steane's 7-qubit code under depolarizing noise.</p>
   <a href="error-correction.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">Quantum Error Mitigation</div>
   <h3>Quantum Error Mitigation for Near-Term Devices</h3>
-  <p>Develops and benchmarks error mitigation techniques (zero-noise extrapolation, probabilistic error cancellation) for NISQ devices to enable meaningful quantum computations.</p>
+  <p>Benchmarks ZNE, PEC, and readout error mitigation on IBM hardware.</p>
   <a href="error-mitigation.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">Quantum Simulation</div>
   <h3>Quantum Circuit Simulation with Qiskit</h3>
-  <p>Explores quantum circuit optimization and simulation using IBM's Qiskit framework. Implements Deutsch-Jozsa, Grover's search, and teleportation with noise analysis.</p>
+  <p>Implements Deutsch-Jozsa, Grover's search, and teleportation.</p>
   <a href="projects.html" class="button">View Project Details →</a>
 </div>
 
-<!-- ========== RESEARCH PROJECTS LIST ========== -->
+<!-- BLOG SECTION (NEW) -->
+<h2>📝 Research Blog</h2>
+
+<div class="blog-post">
+  <div class="section-badge">Update</div>
+  <h3>New: Quantum Error Mitigation Results</h3>
+  <p>I've successfully benchmarked ZNE on IBM quantum hardware, achieving up to 82% error reduction. Next step: combining ZNE with readout error mitigation.</p>
+  <div class="blog-date">📅 May 21, 2026</div>
+</div>
+
+<div class="blog-post">
+  <div class="section-badge">Update</div>
+  <h3>Image Classification Project Complete</h3>
+  <p>My CNN model achieved 99.3% accuracy on MNIST and 78.1% on CIFAR-10. Code and results are now available on GitHub.</p>
+  <div class="blog-date">📅 May 15, 2026</div>
+</div>
+
+<div class="blog-post">
+  <div class="section-badge">Coming Soon</div>
+  <h3>Next: Explainable AI Research</h3>
+  <p>I'm currently exploring SHAP and LIME to make ML models more interpretable. Results coming next week.</p>
+  <div class="blog-date">📅 May 10, 2026</div>
+</div>
+
+<!-- NEWSLETTER SECTION -->
+<div class="newsletter-box">
+  <h3 style="margin-top: 0;">📧 Stay Updated</h3>
+  <p>Subscribe to get notified when I publish new research.</p>
+  <form id="newsletterForm">
+    <input type="email" id="subscriberEmail" placeholder="Your email address" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="subscribeMessage" style="font-size: 0.8rem; margin-top: 10px; display: none;"></p>
+</div>
+
 <div class="publications">
   <h3 style="margin-top: 0;">📋 Research Projects</h3>
   <ul>
-    <li><strong>Alishba Zafar</strong>. (2026). Image Classification on CIFAR-10: CNN vs Random Forest. <em>Independent research project</em>.</li>
-    <li><strong>Alishba Zafar</strong>. (2026). Sentiment Analysis on IMDb Reviews: LSTM vs BERT. <em>Independent research project</em>.</li>
-    <li><strong>Alishba Zafar</strong>. (2026). Explainable AI with SHAP and LIME. <em>Independent research project</em>.</li>
-    <li><strong>Alishba Zafar</strong>. (2026). Quantum Error Mitigation for NISQ Devices. <em>Independent research project</em>.</li>
-    <li><strong>Alishba Zafar</strong>. (2025). Comparative Analysis of Shor's 9-Qubit and Steane's 7-Qubit Error Correction Codes. <em>Independent research project</em>.</li>
-    <li><strong>Alishba Zafar</strong>. (2025). Quantum Circuit Simulation with Qiskit. <em>Independent research project</em>.</li>
+    <li><strong>Alishba Zafar</strong>. (2026). Image Classification on CIFAR-10: CNN vs Random Forest.</li>
+    <li><strong>Alishba Zafar</strong>. (2026). Sentiment Analysis on IMDb Reviews: LSTM vs BERT.</li>
+    <li><strong>Alishba Zafar</strong>. (2026). Explainable AI with SHAP and LIME.</li>
+    <li><strong>Alishba Zafar</strong>. (2026). Quantum Error Mitigation for NISQ Devices.</li>
   </ul>
 </div>
 
@@ -323,20 +379,17 @@ I am a student researcher with interests in artificial intelligence, machine lea
   <h3 style="margin-top: 0;">📫 Connect With Me</h3>
   <p>
     <a href="mailto:alishba@example.com">✉️ Email</a> |
-    <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank">💻 GitHub</a> |
-    <a href="#">🔗 LinkedIn (Coming Soon)</a>
-  </p>
-  <p style="font-size: 0.85rem; margin-top: 10px;">
-    📍 Open to research collaborations in AI/ML and quantum computing
+    <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank">💻 GitHub</a>
   </p>
 </div>
 
 <footer>
-  <p>© 2026 Alishba Zafar | AI/ML & Quantum Research Portfolio</p>
+  <p>© 2026 Alishba Zafar | AI/ML & Quantum Research</p>
   <p>📅 Last updated: May 2026</p>
 </footer>
 
 <script>
+  // Dark mode toggle
   function toggleDarkMode() {
     document.body.classList.toggle('dark');
     const btn = document.querySelector('.dark-mode-btn');
@@ -346,6 +399,38 @@ I am a student researcher with interests in artificial intelligence, machine lea
       btn.innerHTML = '🌙 Dark Mode';
     }
   }
+
+  // View counter
+  let count = localStorage.getItem('pageViewCount');
+  if (count === null) {
+    count = 1;
+  } else {
+    count = parseInt(count) + 1;
+  }
+  localStorage.setItem('pageViewCount', count);
+  document.getElementById('viewCounter').innerHTML = `👁️ ${count} views`;
+
+  // Newsletter signup
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('subscriberEmail').value;
+    const messageBox = document.getElementById('subscribeMessage');
+    
+    // Save to localStorage (in a real site, you'd send to a server)
+    let subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+    if (!subscribers.includes(email)) {
+      subscribers.push(email);
+      localStorage.setItem('subscribers', JSON.stringify(subscribers));
+      messageBox.style.color = '#10b981';
+      messageBox.innerHTML = '✅ Thanks for subscribing!';
+    } else {
+      messageBox.style.color = '#f97316';
+      messageBox.innerHTML = '⚠️ You are already subscribed.';
+    }
+    messageBox.style.display = 'block';
+    document.getElementById('subscriberEmail').value = '';
+    setTimeout(() => { messageBox.style.display = 'none'; }, 3000);
+  });
 </script>
 
 </body>
