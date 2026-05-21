@@ -97,6 +97,7 @@
     font-weight: 500;
     transition: background 0.2s;
     margin-bottom: 20px;
+    float: right;
   }
   .dark-mode-btn:hover {
     background-color: #6366f1;
@@ -119,6 +120,7 @@
     border-radius: 50px;
     margin: 25px 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    clear: both;
   }
   nav a {
     margin: 0 15px;
@@ -219,12 +221,6 @@
     border-radius: 25px;
     cursor: pointer;
   }
-  .view-counter {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #6b7280;
-    margin-top: 10px;
-  }
   @media (max-width: 600px) {
     body { padding: 20px; }
     h1 { font-size: 1.8rem; }
@@ -237,8 +233,7 @@
 
 <body>
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <div class="view-counter" id="viewCounter"></div>
+<div style="display: flex; justify-content: flex-end;">
   <button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 </div>
 
@@ -330,7 +325,7 @@ I am a student researcher with interests in artificial intelligence, machine lea
   <a href="projects.html" class="button">View Project Details →</a>
 </div>
 
-<!-- BLOG SECTION (NEW) -->
+<!-- BLOG SECTION -->
 <h2>📝 Research Blog</h2>
 
 <div class="blog-post">
@@ -400,23 +395,12 @@ I am a student researcher with interests in artificial intelligence, machine lea
     }
   }
 
-  // View counter
-  let count = localStorage.getItem('pageViewCount');
-  if (count === null) {
-    count = 1;
-  } else {
-    count = parseInt(count) + 1;
-  }
-  localStorage.setItem('pageViewCount', count);
-  document.getElementById('viewCounter').innerHTML = `👁️ ${count} views`;
-
   // Newsletter signup
   document.getElementById('newsletterForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const email = document.getElementById('subscriberEmail').value;
     const messageBox = document.getElementById('subscribeMessage');
     
-    // Save to localStorage (in a real site, you'd send to a server)
     let subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
     if (!subscribers.includes(email)) {
       subscribers.push(email);
