@@ -16,6 +16,7 @@
   body.dark .card,
   body.dark .skills-box,
   body.dark .contact-box,
+  body.dark .cert-card,
   body.dark nav {
     background: #1e293b;
   }
@@ -23,7 +24,8 @@
     background: #334155;
     color: #a5b4fc;
   }
-  body.dark .achievement-item {
+  body.dark .achievement-item,
+  body.dark .cert-item {
     background: #1e293b;
     border-color: #334155;
   }
@@ -128,6 +130,41 @@
     margin-bottom: 15px;
     border-left: 4px solid #4f46e5;
   }
+  .cert-item {
+    background: #f8f9ff;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    border-left: 4px solid #10b981;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .cert-info {
+    flex: 1;
+  }
+  .cert-title {
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .cert-issuer {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 5px;
+  }
+  .cert-link {
+    background-color: #4f46e5;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+  .cert-link:hover {
+    background-color: #6366f1;
+    text-decoration: none;
+  }
   .contact-box {
     background: white;
     padding: 20px;
@@ -150,9 +187,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 25px;
   }
+  .cert-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
   @media (max-width: 700px) {
     .two-columns { grid-template-columns: 1fr; }
     .profile-header { flex-direction: column; text-align: center; }
+    .cert-item { flex-direction: column; text-align: center; gap: 10px; }
   }
 </style>
 </head>
@@ -220,8 +263,57 @@
   </div>
 </div>
 
+<!-- Certificates Section -->
+<h2>📜 Certificates & Achievements</h2>
+<div class="cert-grid">
+  <div class="cert-item">
+    <div class="cert-info">
+      <div class="cert-title">Qiskit Global Summer School</div>
+      <div class="cert-issuer">IBM Quantum | 2025</div>
+      <div class="cert-issuer">Quantum Computing fundamentals and quantum algorithms</div>
+    </div>
+    <a href="#" class="cert-link">View Certificate →</a>
+  </div>
+
+  <div class="cert-item">
+    <div class="cert-info">
+      <div class="cert-title">Machine Learning Specialization</div>
+      <div class="cert-issuer">DeepLearning.AI | 2025</div>
+      <div class="cert-issuer">Supervised learning, neural networks, and ML best practices</div>
+    </div>
+    <a href="#" class="cert-link">View Certificate →</a>
+  </div>
+
+  <div class="cert-item">
+    <div class="cert-info">
+      <div class="cert-title">TensorFlow Developer Certificate</div>
+      <div class="cert-issuer">Google TensorFlow | 2026</div>
+      <div class="cert-issuer">Building and deploying deep learning models</div>
+    </div>
+    <a href="#" class="cert-link">View Certificate →</a>
+  </div>
+
+  <div class="cert-item">
+    <div class="cert-info">
+      <div class="cert-title">Introduction to Quantum Computing</div>
+      <div class="cert-issuer">MIT OpenCourseWare | 2025</div>
+      <div class="cert-issuer">Quantum gates, circuits, and basic algorithms</div>
+    </div>
+    <a href="#" class="cert-link">View Certificate →</a>
+  </div>
+
+  <div class="cert-item">
+    <div class="cert-info">
+      <div class="cert-title">Python for Data Science</div>
+      <div class="cert-issuer">IBM Cognitive Class | 2025</div>
+      <div class="cert-issuer">Python programming, data analysis, and visualization</div>
+    </div>
+    <a href="#" class="cert-link">View Certificate →</a>
+  </div>
+</div>
+
 <!-- Achievements -->
-<h2>🏆 Achievements & Recognition</h2>
+<h2>🏆 Research Achievements</h2>
 <div class="achievement-item">
   <strong>🏅 Independent Research Portfolio</strong><br>
   Built a complete research portfolio showcasing 6 projects in AI and quantum computing.
