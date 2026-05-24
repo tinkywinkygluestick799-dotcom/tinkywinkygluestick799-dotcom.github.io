@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Alishba Zafar | Student Profile</title>
+<style>
+  /* Light Mode */
+  body {
+    background: linear-gradient(135deg, #f8f9ff, #f0f2fe);
+    color: #1a1a2e;
+  }
+  body.dark {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    color: #e2e8f0;
+  }
+  body.dark .card,
+  body.dark .skills-box,
+  body.dark .contact-box,
+  body.dark nav {
+    background: #1e293b;
+  }
+  body.dark .skill-tag {
+    background: #334155;
+    color: #a5b4fc;
+  }
+  body.dark .achievement-item {
+    background: #1e293b;
+    border-color: #334155;
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+  }
+  h1 {
+    color: #4f46e5;
+    font-size: 2.5rem;
+    border-left: 5px solid #4f46e5;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-top: 40px;
+    border-bottom: 2px solid #c7d2fe;
+    padding-bottom: 8px;
+    color: #4f46e5;
+  }
+  h3 {
+    color: #4f46e5;
+    margin-top: 25px;
+  }
+  a {
+    color: #4f46e5;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .dark-mode-btn {
+    background-color: #4f46e5;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    float: right;
+    margin-bottom: 20px;
+  }
+  nav {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    margin: 25px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    clear: both;
+  }
+  nav a {
+    margin: 0 15px;
+    font-weight: 600;
+  }
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #4f46e5, #818cf8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+  }
+  .profile-info h2 {
+    margin-top: 0;
+    border-bottom: none;
+  }
+  .skill-tag {
+    display: inline-block;
+    background: #eef2ff;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #4f46e5;
+    margin: 5px 5px 0 0;
+  }
+  .achievement-item {
+    background: #f8f9ff;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    border-left: 4px solid #4f46e5;
+  }
+  .contact-box {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .contact-box a {
+    margin: 0 12px;
+    display: inline-block;
+  }
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #6b7280;
+    font-size: 0.85rem;
+  }
+  .two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  @media (max-width: 700px) {
+    .two-columns { grid-template-columns: 1fr; }
+    .profile-header { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+
+<body>
+
+<button class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+<h1>Alishba Zafar</h1>
+<p style="font-size: 1.2rem; color: #4f46e5;">Student Profile | AI & Quantum Computing Researcher</p>
+
+<nav>
+<a href="index.html">Research Portfolio</a>
+<a href="profile.html">Student Profile</a>
+</nav>
+
+<!-- Profile Section -->
+<div class="card">
+  <div class="profile-header">
+    <div class="avatar">AZ</div>
+    <div class="profile-info">
+      <h2 style="margin-bottom: 5px;">About Me</h2>
+      <p>I'm a passionate student researcher exploring the intersection of <strong>Artificial Intelligence</strong> and <strong>Quantum Computing</strong>. I love building things, solving problems, and sharing what I learn.</p>
+      <p>📍 Based in Pakistan</p>
+    </div>
+  </div>
+</div>
+
+<!-- Education & Goals -->
+<div class="two-columns">
+  <div class="card">
+    <h3>📖 Education</h3>
+    <ul>
+      <li><strong>Self-Directed Learning</strong> — Quantum Computing, Machine Learning, Python</li>
+      <li><strong>Online Courses</strong> — Qiskit Textbook, MIT OpenCourseWare, DeepLearning.AI</li>
+      <li><strong>Independent Research</strong> — Quantum Error Correction, NISQ Mitigation, Computer Vision</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🎯 Goals</h3>
+    <ul>
+      <li>🔬 Publish research in quantum machine learning</li>
+      <li>🤝 Collaborate with researchers worldwide</li>
+      <li>🎓 Pursue formal education in quantum information</li>
+      <li>📚 Make complex topics accessible to beginners</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Skills -->
+<div class="card">
+  <h3>🛠️ Skills</h3>
+  <div>
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">TensorFlow</span>
+    <span class="skill-tag">PyTorch</span>
+    <span class="skill-tag">Qiskit</span>
+    <span class="skill-tag">Scikit-learn</span>
+    <span class="skill-tag">NumPy/Pandas</span>
+    <span class="skill-tag">Matplotlib</span>
+    <span class="skill-tag">Git/GitHub</span>
+    <span class="skill-tag">NLP</span>
+    <span class="skill-tag">Quantum Error Correction</span>
+  </div>
+</div>
+
+<!-- Achievements -->
+<h2>🏆 Achievements & Recognition</h2>
+<div class="achievement-item">
+  <strong>🏅 Independent Research Portfolio</strong><br>
+  Built a complete research portfolio showcasing 6 projects in AI and quantum computing.
+</div>
+<div class="achievement-item">
+  <strong>📊 Quantum Error Mitigation Research</strong><br>
+  Achieved up to 86% error reduction using ZNE and readout mitigation techniques.
+</div>
+<div class="achievement-item">
+  <strong>🤖 Image Classification Project</strong><br>
+  Developed CNN models achieving 99.3% accuracy on MNIST and 78.1% on CIFAR-10.
+</div>
+
+<!-- Interests -->
+<div class="card">
+  <h3>💡 Interests</h3>
+  <ul>
+    <li>Quantum Machine Learning</li>
+    <li>Explainable AI (XAI)</li>
+    <li>Natural Language Processing</li>
+    <li>Quantum Error Correction</li>
+    <li>Science Communication & Teaching</li>
+  </ul>
+</div>
+
+<!-- Contact -->
+<div class="contact-box">
+  <h3 style="margin-top: 0;">📫 Contact</h3>
+  <p>
+    <a href="mailto:alishba@example.com">✉️ Email</a> |
+    <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank">💻 GitHub</a> |
+    <a href="index.html">🔬 Research Portfolio</a>
+  </p>
+</div>
+
+<footer>
+  <p>© 2026 Alishba Zafar | Student Profile</p>
+  <p>Open to research collaborations and learning opportunities</p>
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const btn = document.querySelector('.dark-mode-btn');
+    btn.innerHTML = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  }
+</script>
+
+</body>
+
+</html>
