@@ -243,3 +243,30 @@ We have executed and benchmarked three core quantum circuits on real IBM hardwar
 
 </body>
 </html>
+<h2>📖 Citation</h2>
+<div class="calculation">
+    @article{zafar2026comparative,<br>
+    &nbsp;&nbsp;author = {Alishba Zafar},<br>
+    &nbsp;&nbsp;title = {Comparative analysis of Shor's 9‑qubit and Steane's 7‑qubit quantum error‑correction codes},<br>
+    &nbsp;&nbsp;year = {2026},<br>
+    &nbsp;&nbsp;url = {https://tinkywinkygluestick799-dotcom.github.io/error-correction.html}<br>
+    }
+</div>
+<p>📥 <a href="#" id="downloadBibtex" style="background:#2c3e66; color:white; padding:6px 12px; border-radius:20px; text-decoration:none;">Download BibTeX (.bib)</a></p>
+<script>
+    document.getElementById('downloadBibtex')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        const bib = `@article{zafar2026comparative,
+  author = {Alishba Zafar},
+  title = {Comparative analysis of Shor's 9‑qubit and Steane's 7‑qubit quantum error‑correction codes},
+  year = {2026},
+  url = {https://tinkywinkygluestick799-dotcom.github.io/error-correction.html}
+}`;
+        const blob = new Blob([bib], {type: 'text/plain'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'zafar2026comparative.bib';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    });
+</script>
