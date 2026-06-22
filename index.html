@@ -250,6 +250,15 @@
     background: #1e293b;
     color: #e2e8f0;
   }
+  .problem-statement {
+    font-size: 0.9rem;
+    color: #4f46e5;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+  body.dark .problem-statement {
+    color: #a5b4fc;
+  }
   @media (max-width: 600px) {
     body { padding: 20px; }
     h1 { font-size: 1.8rem; }
@@ -286,7 +295,7 @@
     I'm a 14‑year‑old researcher from Karachi, Pakistan, with a passion for quantum computing and artificial intelligence. I taught myself quantum mechanics, linear algebra, and Qiskit using free online resources — from YouTube lectures to IBM's documentation. My first quantum simulation ran on a laptop, not a supercomputer.
   </p>
   <p style="margin-top: 12px;">
-    I've since built independent research projects in quantum error correction and NISQ device mitigation, and I'm now expanding into classical AI/ML. My goal is to bridge the gap between quantum physics and machine learning — building algorithms that will run on tomorrow's hardware. I believe that curiosity, consistency, and open‑source collaboration are the keys to contributing to this field, even at a young age.
+    I've since built independent research projects in quantum error correction and NISQ device mitigation, and I'm now expanding into classical AI/ML. My goal is to bridge the gap between quantum physics and machine learning — building algorithms that will run on tomorrow's hardware.
   </p>
 </div>
 
@@ -341,6 +350,7 @@
 <div class="research-card">
   <div class="section-badge">AI / Computer Vision</div>
   <h3>Image Classification with CNNs</h3>
+  <div class="problem-statement">❓ The problem: Traditional ML fails on complex images. Can deep learning do better?</div>
   <p>Compares CNNs with Random Forest on MNIST and CIFAR-10 datasets.</p>
   <a href="ml-image-classification.html" class="button">View Research Details →</a>
 </div>
@@ -348,6 +358,7 @@
 <div class="research-card">
   <div class="section-badge">AI / Natural Language Processing</div>
   <h3>Sentiment Analysis with NLP</h3>
+  <div class="problem-statement">❓ The problem: Can AI accurately detect emotion in text? How do different models compare?</div>
   <p>Compares LSTM and BERT on IMDb movie reviews.</p>
   <a href="nlp-sentiment.html" class="button">View Project Details →</a>
 </div>
@@ -355,6 +366,7 @@
 <div class="research-card">
   <div class="section-badge">AI / Explainable AI</div>
   <h3>Explainable AI (XAI)</h3>
+  <div class="problem-statement">❓ The problem: AI makes decisions, but we don't know why. How can we explain them?</div>
   <p>Uses SHAP and LIME to explain model predictions.</p>
   <a href="explainable-ai.html" class="button">View Research Details →</a>
 </div>
@@ -365,6 +377,7 @@
 <div class="research-card">
   <div class="section-badge">Quantum Error Correction</div>
   <h3>⚛️ QEC Sim: Shor vs. Steane</h3>
+  <div class="problem-statement">❓ The problem: Quantum computers lose information to noise. Which error-correcting code protects it best?</div>
   <p>Compares Shor's 9-qubit code and Steane's 7-qubit code under depolarizing noise.</p>
   <a href="error-correction.html" class="button">View Research Details →</a>
 </div>
@@ -372,6 +385,7 @@
 <div class="research-card">
   <div class="section-badge">Quantum Error Mitigation</div>
   <h3>🔧 NISQ Mitigator</h3>
+  <div class="problem-statement">❓ The problem: Today's quantum computers are too noisy. Can we reduce errors without extra qubits?</div>
   <p>Benchmarks ZNE, PEC, and readout error mitigation on IBM hardware.</p>
   <a href="error-mitigation.html" class="button">View Research Details →</a>
 </div>
@@ -379,6 +393,7 @@
 <div class="research-card">
   <div class="section-badge">Quantum Simulation</div>
   <h3>🧪 Qiskit Playground</h3>
+  <div class="problem-statement">❓ The problem: Can foundational quantum algorithms run on today's real quantum hardware?</div>
   <p>Implements Deutsch-Jozsa, Grover's search, and teleportation.</p>
   <a href="projects.html" class="button">View Project Details →</a>
 </div>
