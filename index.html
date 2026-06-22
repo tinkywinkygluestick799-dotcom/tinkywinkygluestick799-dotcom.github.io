@@ -19,6 +19,7 @@
   body.dark .publications,
   body.dark .blog-post,
   body.dark .newsletter-box,
+  body.dark .roadmap-item,
   body.dark nav {
     background: #1e293b;
     color: #e2e8f0;
@@ -102,7 +103,7 @@
   .dark-mode-btn:hover {
     background-color: #6366f1;
   }
-  .research-card, .blog-post, .newsletter-box {
+  .research-card, .blog-post, .newsletter-box, .roadmap-item {
     background: white;
     padding: 20px 25px;
     border-radius: 20px;
@@ -205,6 +206,21 @@
     font-size: 0.8rem;
     margin-top: 10px;
   }
+  .roadmap-phase {
+    font-weight: bold;
+    color: #4f46e5;
+    margin-bottom: 5px;
+  }
+  body.dark .roadmap-phase {
+    color: #a5b4fc;
+  }
+  .roadmap-item ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  .roadmap-item ul li {
+    margin-bottom: 8px;
+  }
   .newsletter-box input {
     padding: 10px;
     border-radius: 25px;
@@ -263,7 +279,7 @@
 
 <hr>
 
-<!-- ========== NEW ABOUT ME SECTION ========== -->
+<!-- ABOUT ME SECTION -->
 <h2>👩‍🔬 About Me</h2>
 <div class="about-section">
   <p>
@@ -285,6 +301,37 @@
     <li>Qiskit</li>
     <li>Quantum Error Correction</li>
     <li>Git / GitHub</li>
+  </ul>
+</div>
+
+<!-- RESEARCH ROADMAP SECTION -->
+<h2>🗺️ Research Roadmap</h2>
+
+<div class="roadmap-item">
+  <div class="roadmap-phase">Phase 1 — Foundation (Months 1–2)</div>
+  <ul>
+    <li>Publish all quantum projects as separate GitHub repositories.</li>
+    <li>Complete detailed README for each project.</li>
+    <li>Learn the basics of PyTorch and scikit-learn.</li>
+    <li>Write a blog post: <em>"How I built my first quantum simulator."</em></li>
+  </ul>
+</div>
+
+<div class="roadmap-item">
+  <div class="roadmap-phase">Phase 2 — AI/ML Integration (Months 3–4)</div>
+  <ul>
+    <li>Build a simple classical neural network from scratch (MiniML).</li>
+    <li>Start a hybrid quantum-classical project (e.g., quantum kernel estimation).</li>
+    <li>Publish a second blog post: <em>"Quantum vs. Classical: Which is faster for small data?"</em></li>
+  </ul>
+</div>
+
+<div class="roadmap-item">
+  <div class="roadmap-phase">Phase 3 — Outreach & Applications (Months 5–6)</div>
+  <ul>
+    <li>Apply for quantum computing internships (IBM Quantum, QuEra, etc.).</li>
+    <li>Build a small community (Discord/Reddit) for young quantum learners.</li>
+    <li>Submit a project to the Qiskit Advocate program.</li>
   </ul>
 </div>
 
