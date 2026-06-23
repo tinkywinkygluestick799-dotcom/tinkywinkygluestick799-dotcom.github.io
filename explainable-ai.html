@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explainable AI | SHAP vs LIME | Alishba Zafar</title>
+    <title>ModelExplainer | SHAP vs LIME | Alishba Zafar</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 1rem 2rem;
-            background: #fefefe;
-            color: #111;
-            line-height: 1.5;
-        }
+        body { font-family: 'Georgia', 'Times New Roman', Times, serif; max-width: 1100px; margin: 2rem auto; padding: 1rem 2rem; background: #fefefe; color: #111; line-height: 1.5; }
         h1, h2, h3 { font-family: 'Segoe UI', system-ui, sans-serif; margin-top: 1.5em; margin-bottom: 0.5em; }
         h1 { font-size: 2rem; border-left: 5px solid #2c3e66; padding-left: 1rem; }
         h2 { border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
@@ -23,99 +15,74 @@
         table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; }
         th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: center; }
         th { background: #f2f2f2; }
-        .graph-container { background: #fafafa; padding: 1rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid #e0e0e0; }
+        .graph-container { background: #fafafa; padding: 1rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid #e0e0e0; text-align: center; }
         canvas { max-height: 400px; width: 100%; }
-        .calculation { background: #f4f6f9; padding: 1rem 1.5rem; border-radius: 12px; font-family: monospace; margin: 1rem 0; border-left: 4px solid #2c3e66; }
         .button { display: inline-block; background-color: #2c3e66; color: white; padding: 0.5rem 1.2rem; border-radius: 30px; text-decoration: none; margin: 1rem 0.5rem 0 0; font-size: 0.9rem; }
         footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ccc; font-size: 0.8rem; text-align: center; }
-        @media (max-width: 700px) { body { padding: 1rem; } th, td { font-size: 0.75rem; } }
     </style>
 </head>
 <body>
 
-<h1>Explaining black‑box predictions: a comparative analysis of SHAP and LIME on a random forest classifier</h1>
+<h1>ModelExplainer: SHAP vs LIME Feature Importance</h1>
 <div class="paper-meta">
     <strong>Alishba Zafar</strong> &nbsp;|&nbsp; Independent Researcher &nbsp;|&nbsp;
     <a href="index.html">← back to portfolio</a><br>
-    <em>Manuscript prepared: June 2026 &nbsp;|&nbsp; Keywords: explainable AI, SHAP, LIME, feature importance, model interpretability</em>
+    <em>Explaining black-box ML predictions on the Adult Income dataset.</em>
 </div>
 
-<h2>Abstract</h2>
-<p>
-Interpretability is critical for deploying machine learning models in high‑stakes domains. We evaluate two leading post‑hoc explanation frameworks – SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model‑agnostic Explanations) – on a trained Random Forest classifier. Using the UCI Adult Income dataset, we compare global feature importance rankings, local explanation stability, and computational cost. SHAP provides consistent global rankings (based on Shapley values) but is 12× slower than LIME. LIME offers faster local explanations but exhibits higher variance across repeated runs. We conclude that SHAP is preferable for regulatory compliance and global model auditing, while LIME is better suited for real‑time interactive debugging.
-</p>
+<h2>The Problem</h2>
+<p>AI makes decisions, but we don't know why. How can we explain them?</p>
 
-<h2>1. Methods</h2>
-<p>
-A Random Forest (200 trees, max depth = 10) is trained on the Adult Income dataset (48,842 samples, 14 features). Explanations are generated for the full test set (global) and for individual misclassified instances (local). SHAP uses the TreeExplainer kernel; LIME uses default settings with 5,000 perturbation samples. Stability is measured as the average cosine similarity between five repeated explanations for the same instance.
-</p>
+<h2>Key Result</h2>
+<p>SHAP and LIME identified capital-gain as the most important feature.</p>
 
-<h2>2. Results</h2>
+<h2>Results</h2>
 
-<h3>2.1 Global feature importance (top 5)</h3>
+<div class="graph-container">
+    <h3>Figure 1 – Global feature importance</h3>
+    <canvas id="xaiChart"></canvas>
+    <p style="font-size:0.85rem; margin-top:0.5rem;">SHAP and LIME agree on the top features.</p>
+</div>
+
 <table>
-    <thead><tr><th>Feature</th><th>SHAP importance</th><th>LIME importance (mean over 1000 samples)</th></tr></thead>
+    <thead><tr><th>Feature</th><th>SHAP</th><th>LIME</th></tr></thead>
     <tbody>
-        <tr><td>capital‑gain</td><td>0.31</td><td>0.28</td></tr>
-        <tr><td>education‑num</td><td>0.22</td><td>0.24</td></tr>
-        <tr><td>marital‑status</td><td>0.18</td><td>0.19</td></tr>
+        <tr><td>capital-gain</td><td>0.31</td><td>0.28</td></tr>
+        <tr><td>education-num</td><td>0.22</td><td>0.24</td></tr>
+        <tr><td>marital-status</td><td>0.18</td><td>0.19</td></tr>
         <tr><td>age</td><td>0.14</td><td>0.15</td></tr>
-        <tr><td>hours‑per‑week</td><td>0.09</td><td>0.08</td></tr>
+        <tr><td>hours-per-week</td><td>0.09</td><td>0.08</td></tr>
     </tbody>
 </table>
 
-<div class="graph-container">
-    <h3>Figure 1 – Global feature importance (SHAP vs LIME)</h3>
-    <canvas id="importanceChart"></canvas>
-</div>
+<h2>How to Run</h2>
+<pre style="background:#f4f6f9; padding:1rem; border-radius:12px; border-left:4px solid #2c3e66; overflow-x:auto;">
+git clone https://github.com/tinkywinkygluestick799-dotcom/modelexplainer
+cd modelexplainer
+pip install -r requirements.txt
+python explain_model.py
+</pre>
 
-<h2>3. Discussion</h2>
-<p>
-Both methods agree on the most influential features, but SHAP’s theoretical grounding (Shapley values) guarantees consistency and prevents rank reversals. LIME’s local perturbations can produce unstable results when the decision boundary is highly non‑linear. For example, on a borderline instance, LIME assigned high importance to "hours‑per‑week" in 60 % of runs, whereas SHAP gave the same ranking every time. However, LIME runs in <0.5 seconds per instance, while SHAP takes ≈6 seconds.
-</p>
+<h2>Author</h2>
+<p><strong>Alishba Zafar</strong> – 14-year-old researcher from Karachi, Pakistan.<br>
+🔗 <a href="https://tinkywinkygluestick799-dotcom.github.io">Portfolio</a> &nbsp;|&nbsp; 🐙 <a href="https://github.com/tinkywinkygluestick799-dotcom">GitHub</a></p>
 
-<h2>4. Conclusion</h2>
-<p>
-For production systems requiring auditable and stable explanations (finance, healthcare), SHAP is the superior choice. For interactive debugging or real‑time applications, LIME’s speed outweighs its occasional instability. This benchmark provides a quantitative trade‑off to guide practitioners.
-</p>
+<p><a href="index.html" class="button">← Back to portfolio</a>
+<a href="https://github.com/tinkywinkygluestick799-dotcom/modelexplainer" class="button">View code on GitHub ↗</a></p>
 
-<h2>5. References</h2>
-<ol>
-    <li><a href="https://arxiv.org/abs/1705.07874" target="_blank">Lundberg, S. & Lee, S. (2017). A unified approach to interpreting model predictions. <em>NeurIPS</em>.</a></li>
-    <li><a href="https://arxiv.org/abs/1602.04938" target="_blank">Ribeiro, M. et al. (2016). Why should I trust you? Explaining predictions of any classifier. <em>KDD</em>.</a></li>
-    <li><a href="https://github.com/tinkywinkygluestick799-dotcom/explainable-ai" target="_blank">Zafar, A. (2026). Source code and explanation logs. GitHub.</a></li>
-</ol>
-
-<div class="calculation">
-    <strong>📖 Citation (BibTeX)</strong><br>
-    @article{zafar2026xai,<br>
-    &nbsp;&nbsp;author = {Alishba Zafar},<br>
-    &nbsp;&nbsp;title = {Comparing SHAP and LIME for local and global model interpretability},<br>
-    &nbsp;&nbsp;year = {2026},<br>
-    &nbsp;&nbsp;url = {https://tinkywinkygluestick799-dotcom.github.io/explainable-ai.html}<br>
-    }
-</div>
-
-<p style="margin-top: 2rem;">
-    <a href="index.html" class="button">← Back to portfolio</a>
-    <a href="https://github.com/tinkywinkygluestick799-dotcom/explainable-ai" class="button">View code on GitHub ↗</a>
-</p>
-
-<footer>© 2026 Alishba Zafar — CC BY 4.0. All explanation logs and raw SHAP values are available in the repository.</footer>
+<footer>© 2026 Alishba Zafar — CC BY 4.0</footer>
 
 <script>
-    window.addEventListener('load', () => {
-        new Chart(document.getElementById('importanceChart'), {
-            type: 'bar',
-            data: {
-                labels: ['capital‑gain', 'education‑num', 'marital‑status', 'age', 'hours‑per‑week'],
-                datasets: [
-                    { label: 'SHAP importance', data: [0.31, 0.22, 0.18, 0.14, 0.09], backgroundColor: '#2c3e66' },
-                    { label: 'LIME importance', data: [0.28, 0.24, 0.19, 0.15, 0.08], backgroundColor: '#d9534f' }
-                ]
-            },
-            options: { responsive: true }
-        });
+    new Chart(document.getElementById('xaiChart'), {
+        type: 'bar',
+        data: {
+            labels: ['capital-gain', 'education-num', 'marital-status', 'age', 'hours-per-week'],
+            datasets: [
+                { label: 'SHAP', data: [0.31, 0.22, 0.18, 0.14, 0.09], backgroundColor: '#2c3e66' },
+                { label: 'LIME', data: [0.28, 0.24, 0.19, 0.15, 0.08], backgroundColor: '#d9534f' }
+            ]
+        },
+        options: { responsive: true, scales: { y: { title: { display: true, text: 'Importance' } } } }
     });
 </script>
 </body>
