@@ -3,270 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Algorithms on NISQ Hardware | Qiskit | Alishba Zafar</title>
+    <title>QuantumPlayground | Qiskit Algorithms | Alishba Zafar</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 1rem 2rem;
-            background: #fefefe;
-            color: #111;
-            line-height: 1.5;
-        }
-        h1, h2, h3 {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
-        }
-        h1 {
-            font-size: 2rem;
-            border-left: 5px solid #2c3e66;
-            padding-left: 1rem;
-        }
-        h2 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 0.3rem;
-        }
-        .paper-meta {
-            color: #555;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            border-top: 1px solid #eee;
-            padding-top: 1rem;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px 12px;
-            text-align: center;
-        }
-        th {
-            background: #f2f2f2;
-            font-weight: 600;
-        }
-        .graph-container {
-            background: #fafafa;
-            padding: 1rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            border: 1px solid #e0e0e0;
-        }
-        canvas {
-            max-height: 400px;
-            width: 100%;
-        }
-        .calculation {
-            background: #f4f6f9;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            font-family: monospace;
-            margin: 1rem 0;
-            border-left: 4px solid #2c3e66;
-        }
-        .button {
-            display: inline-block;
-            background-color: #2c3e66;
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            margin: 1rem 0.5rem 0 0;
-            font-size: 0.9rem;
-        }
-        footer {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid #ccc;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-        @media (max-width: 700px) {
-            body { padding: 1rem; }
-            th, td { font-size: 0.75rem; }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', 'Times New Roman', Times, serif; max-width: 1100px; margin: 2rem auto; padding: 1rem 2rem; background: #fefefe; color: #111; line-height: 1.5; }
+        h1, h2, h3 { font-family: 'Segoe UI', system-ui, sans-serif; margin-top: 1.5em; margin-bottom: 0.5em; }
+        h1 { font-size: 2rem; border-left: 5px solid #2c3e66; padding-left: 1rem; }
+        h2 { border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
+        .paper-meta { color: #555; font-size: 0.9rem; margin-bottom: 2rem; border-top: 1px solid #eee; padding-top: 1rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: center; }
+        th { background: #f2f2f2; }
+        .graph-container { background: #fafafa; padding: 1rem; border-radius: 12px; margin: 1.5rem 0; border: 1px solid #e0e0e0; text-align: center; }
+        canvas { max-height: 400px; width: 100%; }
+        .button { display: inline-block; background-color: #2c3e66; color: white; padding: 0.5rem 1.2rem; border-radius: 30px; text-decoration: none; margin: 1rem 0.5rem 0 0; font-size: 0.9rem; }
+        footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ccc; font-size: 0.8rem; text-align: center; }
     </style>
 </head>
 <body>
 
-<h1>Implementation and benchmarking of Deutsch‑Jozsa, Grover’s search and quantum teleportation on a real IBM quantum processor</h1>
+<h1>QuantumPlayground: Deutsch-Jozsa, Grover, Teleportation</h1>
 <div class="paper-meta">
     <strong>Alishba Zafar</strong> &nbsp;|&nbsp; Independent Researcher &nbsp;|&nbsp;
     <a href="index.html">← back to portfolio</a><br>
-    <em>Manuscript prepared: May 2026 &nbsp;|&nbsp; Keywords: Qiskit, Deutsch‑Jozsa, Grover, teleportation, NISQ benchmarking</em>
+    <em>Implementing quantum algorithms on IBM hardware.</em>
 </div>
 
-<!-- ========== ABSTRACT ========== -->
-<h2>Abstract</h2>
-<p>
-We implement three foundational quantum algorithms — Deutsch‑Jozsa (DJ), Grover’s search, and quantum teleportation — using IBM’s Qiskit framework. Each circuit is executed on both the noise‑free Qiskit Aer simulator and the real 127‑qubit IBM Osaka device. We report the empirical success probabilities, circuit fidelity, and the dominant error sources. The DJ algorithm performs reliably (86 % hardware fidelity) because of its shallow depth, whereas Grover’s algorithm suffers from gate errors and decoherence (78 % fidelity). Teleportation achieves 91 % fidelity, limited primarily by CNOT errors. All code, noise analysis, and raw measurement data are provided for reproducibility.
-</p>
+<h2>The Problem</h2>
+<p>Can foundational quantum algorithms run on today's real quantum hardware?</p>
 
-<!-- ========== INTRODUCTION ========== -->
-<h2>1. Introduction</h2>
-<p>
-The NISQ era offers small‑scale quantum processors. Understanding how basic algorithms behave on real hardware is essential before scaling to larger problems. This work benchmarks three paradigmatic circuits: 
-</p>
-<ul>
-    <li><strong>Deutsch‑Jozsa:</strong> deterministic exponential speed‑up for function classification.</li>
-    <li><strong>Grover’s search:</strong> quadratic speed‑up for unstructured search.</li>
-    <li><strong>Quantum teleportation:</strong> entanglement‑based state transfer.</li>
-</ul>
-<p>All experiments are executed on <em>ibm_osaka</em> (127 qubits, ~0.01 % CNOT error) and compared with ideal simulator results.</p>
+<h2>Key Result</h2>
+<p>Deutsch-Jozsa ran with 86% fidelity on real quantum hardware.</p>
 
-<!-- ========== METHODS ========== -->
-<h2>2. Methods</h2>
-<p>Circuits are built using Qiskit 1.0 and transpiled for the Osaka coupling map. For each algorithm we run 10<sup>4</sup> shots. Fidelity is defined as the frequency of the correct output state (or, for teleportation, the overlap with the input state). Raw data are stored in the companion repository.</p>
+<h2>Results</h2>
 
-<!-- ========== RESULTS TABLE ========== -->
-<h2>3. Experimental results</h2>
+<div class="graph-container">
+    <h3>Figure 1 – Simulator vs Hardware fidelity</h3>
+    <canvas id="quantumChart"></canvas>
+    <p style="font-size:0.85rem; margin-top:0.5rem;">Hardware fidelity is lower due to gate errors and decoherence.</p>
+</div>
 
-<h3>3.1 Fidelity comparison</h3>
 <table>
-    <thead>
-        <tr><th>Algorithm</th><th>Simulator fidelity (%)</th><th>Hardware fidelity (%)</th><th>Primary error source</th></tr>
-    </thead>
+    <thead><tr><th>Algorithm</th><th>Simulator (%)</th><th>Hardware (%)</th><th>Primary Error</th></tr></thead>
     <tbody>
-        <tr><td>Deutsch‑Jozsa (n=4)</td><td>99.8</td><td>86.2</td><td>readout error</td></tr>
-        <tr><td>Grover’s search (n=3)</td><td>94.7</td><td>78.3</td><td>gate errors + decoherence</td></tr>
-        <tr><td>Quantum teleportation</td><td>99.2</td><td>91.5</td><td>CNOT gate errors</td></tr>
+        <tr><td>Deutsch-Jozsa (n=4)</td><td>99.8</td><td>86.2</td><td>Readout error</td></tr>
+        <tr><td>Grover (n=3)</td><td>94.7</td><td>78.3</td><td>Gate errors + decoherence</td></tr>
+        <tr><td>Teleportation</td><td>99.2</td><td>91.5</td><td>CNOT gate errors</td></tr>
     </tbody>
 </table>
-<p>The shallow DJ circuit is relatively robust; Grover’s deeper circuit is strongly affected by cumulative gate noise.</p>
 
-<!-- ========== LIVE BAR CHART ========== -->
-<div class="graph-container">
-    <h3>Figure 1 – Simulator vs hardware fidelity</h3>
-    <canvas id="fidelityChart" width="800" height="400" style="max-width:100%; height:auto;"></canvas>
-    <p style="font-size:0.85rem; margin-top:0.5rem;">Comparison of three quantum algorithms on ideal simulator and real hardware (IBM Osaka).</p>
-</div>
+<h2>How to Run</h2>
+<pre style="background:#f4f6f9; padding:1rem; border-radius:12px; border-left:4px solid #2c3e66; overflow-x:auto;">
+git clone https://github.com/tinkywinkygluestick799-dotcom/quantumplayground
+cd quantumplayground
+pip install -r requirements.txt
+python run_benchmarks.py
+</pre>
 
-<!-- ========== SELF CALCULATION (hardware penalty) ========== -->
-<h2>4. Self‑calculation of hardware decoherence penalty</h2>
-<p>For Grover’s search, the loss of fidelity is:</p>
-<div class="calculation">
-    Simulator fidelity = 94.7 %<br>
-    Hardware fidelity  = 78.3 %<br>
-    Relative loss = (94.7 – 78.3) / 94.7 × 100 = <strong>17.3 %</strong><br>
-    → Almost one fifth of the success probability is lost due to hardware imperfections.
-</div>
-<p>This penalty is directly correlated with circuit depth: teleportation (depth ≈ 12) loses 7 %, while Grover (depth ≈ 29) loses 17 %.</p>
+<h2>Author</h2>
+<p><strong>Alishba Zafar</strong> – 14-year-old researcher from Karachi, Pakistan.<br>
+🔗 <a href="https://tinkywinkygluestick799-dotcom.github.io">Portfolio</a> &nbsp;|&nbsp; 🐙 <a href="https://github.com/tinkywinkygluestick799-dotcom">GitHub</a></p>
 
-<!-- ========== DISCUSSION ========== -->
-<h2>5. Discussion</h2>
-<p>
-The DJ algorithm remains usable even on today’s noisy devices, making it a good candidate for educational demonstrations. Grover’s quadratic speed‑up is currently overwhelmed by noise for n > 3 qubits; error mitigation or error correction would be required to unlock its advantage. Teleportation works reliably and can serve as a building block for quantum repeaters. The main bottleneck across all circuits is the two‑qubit gate (CNOT) fidelity.
-</p>
+<p><a href="index.html" class="button">← Back to portfolio</a>
+<a href="https://github.com/tinkywinkygluestick799-dotcom/quantumplayground" class="button">View code on GitHub ↗</a></p>
 
-<!-- ========== CONCLUSION ========== -->
-<h2>6. Conclusion</h2>
-<p>
-We have executed and benchmarked three core quantum circuits on real IBM hardware. The DJ algorithm is the most noise‑resilient, while Grover’s search suffers from gate errors. These results provide a concrete reference for anyone planning to run basic quantum algorithms on current NISQ machines.
-</p>
-
-<!-- ========== REFERENCES ========== -->
-<h2>7. References</h2>
-<ol style="margin-left: 1.5rem;">
-    <li><a href="https://royalsocietypublishing.org/doi/10.1098/rspa.1992.0167" target="_blank">Deutsch, D. & Jozsa, R. (1992). Rapid solution of problems by quantum computation. <em>Proc. R. Soc. Lond. A</em> 439, 553.</a></li>
-    <li><a href="https://dl.acm.org/doi/10.1145/237814.237866" target="_blank">Grover, L. K. (1996). A fast quantum mechanical algorithm for database search. <em>STOC</em>, 212–219.</a></li>
-    <li><a href="https://qiskit.org/documentation/" target="_blank">Qiskit contributors (2026). Qiskit: open‑source quantum computing framework.</a></li>
-    <li><a href="https://github.com/tinkywinkygluestick799-dotcom/qiskit-quantum-simulations" target="_blank">Zafar, A. (2026). Simulation source code and raw data. GitHub.</a></li>
-</ol>
-
-<!-- ========== REPRODUCIBILITY ========== -->
-<h2>8. Reproducibility</h2>
-<p>All circuit definitions, analysis scripts, and raw measurement data are available in the companion repository:</p>
-<div class="calculation">
-    git clone https://github.com/tinkywinkygluestick799-dotcom/qiskit-quantum-simulations.git<br>
-    cd qiskit-quantum-simulations<br>
-    pip install -r requirements.txt<br>
-    python run_benchmarks.py
-</div>
-<p>If you use these results, please cite as: <em>Alishba Zafar (2026). “Implementation and benchmarking of Deutsch‑Jozsa, Grover’s search and quantum teleportation”. Independent research paper, URL: <a href="https://tinkywinkygluestick799-dotcom.github.io/projects.html">this page</a>.</em></p>
-
-<p style="margin-top: 2rem;">
-    <a href="index.html" class="button">← Back to portfolio</a>
-    <a href="https://github.com/tinkywinkygluestick799-dotcom/qiskit-quantum-simulations" class="button">View code on GitHub ↗</a>
-</p>
-
-<footer>
-    © 2026 Alishba Zafar — CC BY 4.0. All data and code are open.
-</footer>
+<footer>© 2026 Alishba Zafar — CC BY 4.0</footer>
 
 <script>
-    window.addEventListener('load', function() {
-        const ctx = document.getElementById('fidelityChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Deutsch‑Jozsa (n=4)', 'Grover (n=3)', 'Teleportation'],
-                datasets: [
-                    {
-                        label: 'Simulator (ideal)',
-                        data: [99.8, 94.7, 99.2],
-                        backgroundColor: '#2c3e66',
-                        borderRadius: 8
-                    },
-                    {
-                        label: 'Hardware (IBM Osaka)',
-                        data: [86.2, 78.3, 91.5],
-                        backgroundColor: '#d9534f',
-                        borderRadius: 8
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.raw}%` } },
-                    legend: { position: 'top' }
-                },
-                scales: {
-                    y: { title: { display: true, text: 'Fidelity (%)' }, min: 70, max: 100 }
-                }
-            }
-        });
+    new Chart(document.getElementById('quantumChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Deutsch-Jozsa (n=4)', 'Grover (n=3)', 'Teleportation'],
+            datasets: [
+                { label: 'Simulator (ideal)', data: [99.8, 94.7, 99.2], backgroundColor: '#2c3e66' },
+                { label: 'Hardware (IBM Osaka)', data: [86.2, 78.3, 91.5], backgroundColor: '#d9534f' }
+            ]
+        },
+        options: { responsive: true, scales: { y: { title: { display: true, text: 'Fidelity (%)' } } } }
     });
 </script>
-
 </body>
 </html>
-<h2>📖 Citation</h2>
-<div class="calculation">
-    @article{zafar2026comparative,<br>
-    &nbsp;&nbsp;author = {Alishba Zafar},<br>
-    &nbsp;&nbsp;title = {Comparative analysis of Shor's 9‑qubit and Steane's 7‑qubit quantum error‑correction codes},<br>
-    &nbsp;&nbsp;year = {2026},<br>
-    &nbsp;&nbsp;url = {https://tinkywinkygluestick799-dotcom.github.io/error-correction.html}<br>
-    }
-</div>
-<p>📥 <a href="#" id="downloadBibtex" style="background:#2c3e66; color:white; padding:6px 12px; border-radius:20px; text-decoration:none;">Download BibTeX (.bib)</a></p>
-<script>
-    document.getElementById('downloadBibtex')?.addEventListener('click', function(e) {
-        e.preventDefault();
-        const bib = `@article{zafar2026comparative,
-  author = {Alishba Zafar},
-  title = {Comparative analysis of Shor's 9‑qubit and Steane's 7‑qubit quantum error‑correction codes},
-  year = {2026},
-  url = {https://tinkywinkygluestick799-dotcom.github.io/error-correction.html}
-}`;
-        const blob = new Blob([bib], {type: 'text/plain'});
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'zafar2026comparative.bib';
-        a.click();
-        URL.revokeObjectURL(a.href);
-    });
-</script>
