@@ -26,6 +26,7 @@
         h3 { font-size: 1.25rem; font-weight: 600; color: #818cf8; margin-top: 0.5rem; }
         a { color: #818cf8; text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
         .mode-toggle-btn {
             background: #1e293b;
             color: #e2e8f0;
@@ -40,6 +41,7 @@
         }
         body.light .mode-toggle-btn { background: #eef2ff; color: #1e1b4b; border: 1px solid #c7d2fe; }
         .mode-toggle-btn:hover { opacity: 0.8; }
+
         .button {
             background: #818cf8;
             color: #0f172a;
@@ -76,6 +78,7 @@
             transition: background 0.2s;
         }
         .cv-button:hover { background: #34d399; text-decoration: none; }
+
         .container { max-width: 1100px; margin: 0 auto; }
         .connect-top {
             display: flex;
@@ -93,6 +96,7 @@
             margin: 1.5rem 0;
         }
         body.light .research-statement { background: #eef2ff; color: #1e1b4b; }
+
         nav {
             background: #1e293b;
             padding: 0.8rem 1.5rem;
@@ -103,6 +107,7 @@
         }
         body.light nav { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         nav a { margin: 0 1rem; font-weight: 600; }
+
         .card {
             background: #1e293b;
             padding: 1.8rem 2rem;
@@ -114,6 +119,7 @@
         body.light .card { background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
         .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
         body.light .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
         .skills ul {
             display: flex;
             flex-wrap: wrap;
@@ -131,6 +137,7 @@
             color: #a5b4fc;
         }
         body.light .skills li { background: #eef2ff; color: #4f46e5; }
+
         .problem-statement {
             font-size: 0.9rem;
             color: #a5b4fc;
@@ -138,6 +145,7 @@
             margin: 0.5rem 0 0.2rem 0;
         }
         body.light .problem-statement { color: #4f46e5; }
+
         .result-statement {
             font-size: 0.9rem;
             color: #34d399;
@@ -145,6 +153,7 @@
             margin: 0.3rem 0 0.8rem 0;
         }
         body.light .result-statement { color: #10b981; }
+
         .section-badge {
             display: inline-block;
             background: #818cf8;
@@ -156,8 +165,26 @@
             letter-spacing: 0.03em;
             font-weight: 600;
         }
+
         .blog-date { color: #94a3b8; font-size: 0.8rem; margin-top: 0.5rem; }
         body.light .blog-date { color: #6b7280; }
+
+        .view-counter {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 1rem;
+        }
+        body.light .view-counter { color: #6b7280; }
+
+        .publication-item {
+            border-left: 3px solid #818cf8;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+        .publication-item strong { color: #f1f5f9; }
+        body.light .publication-item strong { color: #1f2937; }
+
         footer {
             text-align: center;
             margin-top: 3rem;
@@ -167,6 +194,7 @@
             color: #94a3b8;
         }
         body.light footer { border-top-color: #e5e7eb; color: #6b7280; }
+
         @media (max-width: 700px) {
             body { padding: 1rem; }
             h1 { font-size: 2rem; padding-left: 0.8rem; }
@@ -196,12 +224,17 @@
             <a href="#" class="cv-button">📄 Download CV</a>
         </div>
 
+        <div class="view-counter" id="viewCounter">👁️ Loading views...</div>
+
         <div class="research-statement">
             🤖 Research focus: Machine Learning · Computer Vision · Natural Language Processing · Explainable AI
         </div>
 
         <nav>
-            <a href="index.html">Research Portfolio</a>
+            <a href="index.html">Home</a>
+            <a href="ml-image-classification.html">VisionLearner</a>
+            <a href="nlp-sentiment.html">TextSense</a>
+            <a href="explainable-ai.html">ModelExplainer</a>
         </nav>
 
         <hr style="border: none; border-top: 1px solid #374151; margin: 1.5rem 0;">
@@ -228,6 +261,26 @@
                 <li>SHAP / LIME</li>
                 <li>Git / GitHub</li>
             </ul>
+        </div>
+
+        <h2>📄 Research Publications</h2>
+
+        <div class="card">
+            <div class="publication-item">
+                <strong>VisionLearner:</strong> Benchmarking Image Classification — CNNs vs Traditional ML.<br>
+                <span style="color: #94a3b8; font-size: 0.9rem;">Alishba Zafar, 2026. </span>
+                <a href="ml-image-classification.html" class="button" style="font-size:0.75rem; padding:0.2rem 0.8rem;">Read Paper</a>
+            </div>
+            <div class="publication-item">
+                <strong>TextSense:</strong> Comparing LSTM and BERT for Sentiment Analysis on IMDb Reviews.<br>
+                <span style="color: #94a3b8; font-size: 0.9rem;">Alishba Zafar, 2026. </span>
+                <a href="nlp-sentiment.html" class="button" style="font-size:0.75rem; padding:0.2rem 0.8rem;">Read Paper</a>
+            </div>
+            <div class="publication-item">
+                <strong>ModelExplainer:</strong> Comparing SHAP and LIME for Local and Global Model Interpretability.<br>
+                <span style="color: #94a3b8; font-size: 0.9rem;">Alishba Zafar, 2026. </span>
+                <a href="explainable-ai.html" class="button" style="font-size:0.75rem; padding:0.2rem 0.8rem;">Read Paper</a>
+            </div>
         </div>
 
         <h2>🗺️ Research Roadmap</h2>
@@ -346,6 +399,14 @@
             const btn = document.querySelector('.mode-toggle-btn');
             btn.innerHTML = document.body.classList.contains('light') ? '🌙 Dark Mode' : '☀️ Light Mode';
         }
+
+        // View counter
+        let count = localStorage.getItem('pageViewCount');
+        if (count === null) { count = 1; } else { count = parseInt(count) + 1; }
+        localStorage.setItem('pageViewCount', count);
+        document.getElementById('viewCounter').innerHTML = `👁️ ${count} views`;
+
+        // Newsletter
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('subscriberEmail').value;
