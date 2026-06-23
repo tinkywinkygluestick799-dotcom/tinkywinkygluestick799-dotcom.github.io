@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alishba Zafar | AI/ML & Quantum Research</title>
+    <title>Alishba Zafar | AI/ML Research</title>
     <style>
-        /* ─── Reset & Base ─── */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -17,21 +16,16 @@
             line-height: 1.6;
             transition: background 0.3s, color 0.3s;
         }
-        /* Light mode override (if user toggles) */
         body.light {
             background: #fafbff;
             color: #111827;
         }
-
-        /* ─── Typography ─── */
         h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.02em; color: #818cf8; border-left: 5px solid #818cf8; padding-left: 1.2rem; margin-bottom: 0.25rem; }
         h2 { font-size: 1.8rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 2px solid #374151; padding-bottom: 0.5rem; color: #f1f5f9; }
         body.light h2 { border-bottom-color: #e5e7eb; color: #1f2937; }
         h3 { font-size: 1.25rem; font-weight: 600; color: #818cf8; margin-top: 0.5rem; }
         a { color: #818cf8; text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
-
-        /* ─── Dark/Light Mode Toggle ─── */
         .mode-toggle-btn {
             background: #1e293b;
             color: #e2e8f0;
@@ -44,14 +38,8 @@
             float: right;
             transition: background 0.2s;
         }
-        body.light .mode-toggle-btn {
-            background: #eef2ff;
-            color: #1e1b4b;
-            border: 1px solid #c7d2fe;
-        }
+        body.light .mode-toggle-btn { background: #eef2ff; color: #1e1b4b; border: 1px solid #c7d2fe; }
         .mode-toggle-btn:hover { opacity: 0.8; }
-
-        /* ─── Buttons ─── */
         .button {
             background: #818cf8;
             color: #0f172a;
@@ -88,10 +76,7 @@
             transition: background 0.2s;
         }
         .cv-button:hover { background: #34d399; text-decoration: none; }
-
-        /* ─── Layout Components ─── */
         .container { max-width: 1100px; margin: 0 auto; }
-
         .connect-top {
             display: flex;
             gap: 12px;
@@ -99,7 +84,6 @@
             justify-content: center;
             margin: 1.5rem 0 1rem 0;
         }
-
         .research-statement {
             background: #1e293b;
             padding: 1rem 1.5rem;
@@ -109,7 +93,6 @@
             margin: 1.5rem 0;
         }
         body.light .research-statement { background: #eef2ff; color: #1e1b4b; }
-
         nav {
             background: #1e293b;
             padding: 0.8rem 1.5rem;
@@ -120,7 +103,6 @@
         }
         body.light nav { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         nav a { margin: 0 1rem; font-weight: 600; }
-
         .card {
             background: #1e293b;
             padding: 1.8rem 2rem;
@@ -132,9 +114,6 @@
         body.light .card { background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
         .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
         body.light .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-
-        .about-section { font-size: 1.05rem; line-height: 1.7; }
-
         .skills ul {
             display: flex;
             flex-wrap: wrap;
@@ -152,7 +131,6 @@
             color: #a5b4fc;
         }
         body.light .skills li { background: #eef2ff; color: #4f46e5; }
-
         .problem-statement {
             font-size: 0.9rem;
             color: #a5b4fc;
@@ -160,7 +138,6 @@
             margin: 0.5rem 0 0.2rem 0;
         }
         body.light .problem-statement { color: #4f46e5; }
-
         .result-statement {
             font-size: 0.9rem;
             color: #34d399;
@@ -168,7 +145,6 @@
             margin: 0.3rem 0 0.8rem 0;
         }
         body.light .result-statement { color: #10b981; }
-
         .section-badge {
             display: inline-block;
             background: #818cf8;
@@ -180,39 +156,8 @@
             letter-spacing: 0.03em;
             font-weight: 600;
         }
-
         .blog-date { color: #94a3b8; font-size: 0.8rem; margin-top: 0.5rem; }
         body.light .blog-date { color: #6b7280; }
-
-        .roadmap-phase { font-weight: 700; color: #a5b4fc; margin-bottom: 0.3rem; }
-        body.light .roadmap-phase { color: #4f46e5; }
-        .roadmap-item ul { padding-left: 1.5rem; margin-top: 0.5rem; }
-        .roadmap-item ul li { margin-bottom: 0.3rem; }
-
-        .newsletter-box input {
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            border: 1px solid #374151;
-            background: #0f172a;
-            color: #e2e8f0;
-            width: 240px;
-            max-width: 70%;
-            margin-right: 0.5rem;
-        }
-        body.light .newsletter-box input { background: white; border: 1px solid #d1d5db; color: #111827; }
-        .newsletter-box button {
-            background: #818cf8;
-            color: #0f172a;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .contact-links { text-align: center; }
-        .contact-links a { margin: 0 0.8rem; }
-
         footer {
             text-align: center;
             margin-top: 3rem;
@@ -222,8 +167,6 @@
             color: #94a3b8;
         }
         body.light footer { border-top-color: #e5e7eb; color: #6b7280; }
-
-        /* ─── Responsive ─── */
         @media (max-width: 700px) {
             body { padding: 1rem; }
             h1 { font-size: 2rem; padding-left: 0.8rem; }
@@ -232,7 +175,6 @@
             .card { padding: 1.2rem; }
             .connect-top { gap: 8px; }
             .connect-top .button, .connect-top .cv-button, .connect-top .button-outline { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
-            .newsletter-box input { width: 100%; margin-bottom: 0.5rem; }
         }
     </style>
 </head>
@@ -240,16 +182,13 @@
 
     <div class="container">
 
-        <!-- Mode Toggle (light mode as optional) -->
         <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
             <button class="mode-toggle-btn" onclick="toggleMode()">☀️ Light Mode</button>
         </div>
 
-        <!-- Header -->
         <h1>Alishba Zafar</h1>
-        <p style="font-size: 1.2rem; color: #818cf8; font-weight: 500;">Researcher in AI &amp; Quantum Computing</p>
+        <p style="font-size: 1.2rem; color: #818cf8; font-weight: 500;">Researcher in Artificial Intelligence &amp; Machine Learning</p>
 
-        <!-- Connect Top -->
         <div class="connect-top">
             <a href="mailto:alishba@example.com" class="button">✉️ Email</a>
             <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank" class="button">💻 GitHub</a>
@@ -257,30 +196,26 @@
             <a href="#" class="cv-button">📄 Download CV</a>
         </div>
 
-        <!-- Research Statement -->
         <div class="research-statement">
-            🤖 Research focus: Machine Learning · Computer Vision · NLP · Quantum Error Correction · NISQ Computing
+            🤖 Research focus: Machine Learning · Computer Vision · Natural Language Processing · Explainable AI
         </div>
 
-        <!-- Navigation -->
         <nav>
             <a href="index.html">Research Portfolio</a>
         </nav>
 
         <hr style="border: none; border-top: 1px solid #374151; margin: 1.5rem 0;">
 
-        <!-- About Me -->
         <h2>👩‍🔬 About Me</h2>
-        <div class="card about-section">
+        <div class="card">
             <p>
-                I'm a 14‑year‑old researcher from Karachi, Pakistan, with a passion for quantum computing and artificial intelligence. I taught myself quantum mechanics, linear algebra, and Qiskit using free online resources — from YouTube lectures to IBM's documentation. My first quantum simulation ran on a laptop, not a supercomputer.
+                I'm a 14‑year‑old researcher from Karachi, Pakistan, with a passion for artificial intelligence and machine learning. I taught myself Python, deep learning, and NLP using free online resources — from YouTube lectures to documentation. My first neural network ran on a laptop, not a supercomputer.
             </p>
             <p style="margin-top: 0.8rem;">
-                I've since built independent research projects in quantum error correction and NISQ device mitigation, and I'm now expanding into classical AI/ML. My goal is to bridge the gap between quantum physics and machine learning — building algorithms that will run on tomorrow's hardware.
+                I've since built independent research projects in computer vision, natural language processing, and explainable AI. My goal is to build models that are not only accurate but also interpretable and trustworthy.
             </p>
         </div>
 
-        <!-- Skills -->
         <h2>⚙️ Technical Skills</h2>
         <div class="card skills">
             <ul>
@@ -289,47 +224,44 @@
                 <li>PyTorch</li>
                 <li>Scikit-learn</li>
                 <li>NLP (Transformers, BERT)</li>
-                <li>Qiskit</li>
-                <li>Quantum Error Correction</li>
+                <li>Computer Vision</li>
+                <li>SHAP / LIME</li>
                 <li>Git / GitHub</li>
             </ul>
         </div>
 
-        <!-- Research Roadmap -->
         <h2>🗺️ Research Roadmap</h2>
 
-        <div class="card roadmap-item">
-            <div class="roadmap-phase">Phase 1 — Foundation (Months 1–2)</div>
-            <ul>
-                <li>Publish all quantum projects as separate GitHub repositories.</li>
-                <li>Complete detailed README for each project.</li>
-                <li>Learn the basics of PyTorch and scikit-learn.</li>
-                <li>Write a blog post: <em>"How I built my first quantum simulator."</em></li>
+        <div class="card">
+            <div style="font-weight: 700; color: #a5b4fc; margin-bottom: 0.3rem;">Phase 1 — Foundation (Months 1–2)</div>
+            <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Complete MiniML — neural network library from scratch.</li>
+                <li>Write blog post: <em>"How I built my first neural network."</em></li>
+                <li>Deepen understanding of PyTorch and TensorFlow.</li>
             </ul>
         </div>
 
-        <div class="card roadmap-item">
-            <div class="roadmap-phase">Phase 2 — AI/ML Integration (Months 3–4)</div>
-            <ul>
-                <li>Build a simple classical neural network from scratch (MiniML).</li>
-                <li>Start a hybrid quantum-classical project (e.g., quantum kernel estimation).</li>
-                <li>Publish a second blog post: <em>"Quantum vs. Classical: Which is faster for small data?"</em></li>
+        <div class="card">
+            <div style="font-weight: 700; color: #a5b4fc; margin-bottom: 0.3rem;">Phase 2 — Advanced Projects (Months 3–4)</div>
+            <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Build a production‑grade computer vision pipeline.</li>
+                <li>Deploy an NLP model with FastAPI.</li>
+                <li>Publish a blog post: <em>"Deploying ML models for free."</em></li>
             </ul>
         </div>
 
-        <div class="card roadmap-item">
-            <div class="roadmap-phase">Phase 3 — Outreach & Applications (Months 5–6)</div>
-            <ul>
-                <li>Apply for quantum computing internships (IBM Quantum, QuEra, etc.).</li>
-                <li>Build a small community (Discord/Reddit) for young quantum learners.</li>
-                <li>Submit a project to the Qiskit Advocate program.</li>
+        <div class="card">
+            <div style="font-weight: 700; color: #a5b4fc; margin-bottom: 0.3rem;">Phase 3 — Outreach & Applications (Months 5–6)</div>
+            <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Apply for AI/ML internships and research programs.</li>
+                <li>Build a small community for young ML learners.</li>
+                <li>Submit a project to an open‑source ML library.</li>
             </ul>
         </div>
 
-        <!-- AI/ML SECTION -->
         <h2>🤖 Artificial Intelligence &amp; Machine Learning</h2>
 
-        <div class="card research-card">
+        <div class="card">
             <div class="section-badge">AI / Computer Vision</div>
             <h3>VisionLearner</h3>
             <div class="problem-statement">❓ The problem: Traditional ML fails on complex images. Can deep learning do better?</div>
@@ -339,7 +271,7 @@
             <a href="https://github.com/tinkywinkygluestick799-dotcom/visionlearner" class="button-outline" target="_blank" style="margin-left:0.3rem;">💻 Code</a>
         </div>
 
-        <div class="card research-card">
+        <div class="card">
             <div class="section-badge">AI / Natural Language Processing</div>
             <h3>TextSense</h3>
             <div class="problem-statement">❓ The problem: Can AI accurately detect emotion in text? How do different models compare?</div>
@@ -349,7 +281,7 @@
             <a href="https://github.com/tinkywinkygluestick799-dotcom/textsense" class="button-outline" target="_blank" style="margin-left:0.3rem;">💻 Code</a>
         </div>
 
-        <div class="card research-card">
+        <div class="card">
             <div class="section-badge">AI / Explainable AI</div>
             <h3>ModelExplainer</h3>
             <div class="problem-statement">❓ The problem: AI makes decisions, but we don't know why. How can we explain them?</div>
@@ -359,76 +291,40 @@
             <a href="https://github.com/tinkywinkygluestick799-dotcom/modelexplainer" class="button-outline" target="_blank" style="margin-left:0.3rem;">💻 Code</a>
         </div>
 
-        <!-- QUANTUM SECTION -->
-        <h2>⚛️ Quantum Computing &amp; Physics</h2>
-
-        <div class="card research-card">
-            <div class="section-badge">Quantum Error Correction</div>
-            <h3>⚛️ QubitShield</h3>
-            <div class="problem-statement">❓ The problem: Quantum computers lose information to noise. Which error-correcting code protects it best?</div>
-            <p>Compares Shor's 9-qubit code and Steane's 7-qubit code under depolarizing noise.</p>
-            <div class="result-statement">📊 Result: Steane's code outperforms Shor's code by 2× with fewer qubits.</div>
-            <a href="error-correction.html" class="button">View Research →</a>
-            <a href="https://github.com/tinkywinkygluestick799-dotcom/qubitshield" class="button-outline" target="_blank" style="margin-left:0.3rem;">💻 Code</a>
-        </div>
-
-        <div class="card research-card">
-            <div class="section-badge">Quantum Error Mitigation</div>
-            <h3>🔧 NISQGuard</h3>
-            <div class="problem-statement">❓ The problem: Today's quantum computers are too noisy. Can we reduce errors without extra qubits?</div>
-            <p>Benchmarks ZNE, PEC, and readout error mitigation on IBM hardware.</p>
-            <div class="result-statement">📊 Result: ZNE + readout mitigation reduced errors by 82% on IBM Osaka.</div>
-            <a href="error-mitigation.html" class="button">View Research →</a>
-            <a href="https://github.com/tinkywinkygluestick799-dotcom/nisqguard" class="button-outline" target="_blank" style="margin-left:0.3rem;">💻 Code</a>
-        </div>
-
-        <div class="card research-card">
-            <div class="section-badge">Quantum Simulation</div>
-            <h3>🧪 QuantumPlayground</h3>
-            <div class="problem-statement">❓ The problem: Can foundational quantum algorithms run on today's real quantum hardware?</div>
-            <p>Implements Deutsch-Jozsa, Grover's search, and teleportation.</p>
-            <div class="result-statement">📊 Result: Deutsch-Jozsa ran with 86% fidelity on real quantum hardware.</div>
-            <a href="projects.html" class="button">View Project →</a>
-            <a href="https://github.com/tinkywinkygluestick799-dotcom/quantumplayground" class="button-outline" target="_blank" style="margin-left:0.3rem;">💻 Code</a>
-        </div>
-
-        <!-- BLOG -->
         <h2>📝 Research Blog</h2>
 
-        <div class="card blog-post">
-            <div class="section-badge">Update</div>
-            <h3>New: Quantum Error Mitigation Results</h3>
-            <p>I've successfully benchmarked ZNE on IBM quantum hardware, achieving up to 82% error reduction. Next step: combining ZNE with readout error mitigation.</p>
-            <div class="blog-date">📅 May 21, 2026</div>
-        </div>
-
-        <div class="card blog-post">
+        <div class="card">
             <div class="section-badge">Update</div>
             <h3>Image Classification Project Complete</h3>
             <p>My CNN model achieved 99.3% accuracy on MNIST and 78.1% on CIFAR-10. Code and results are now available on GitHub.</p>
             <div class="blog-date">📅 May 15, 2026</div>
         </div>
 
-        <div class="card blog-post">
-            <div class="section-badge">Coming Soon</div>
+        <div class="card">
+            <div class="section-badge">Update</div>
             <h3>Next: Explainable AI Research</h3>
             <p>I'm currently exploring SHAP and LIME to make ML models more interpretable. Results coming next week.</p>
             <div class="blog-date">📅 May 10, 2026</div>
         </div>
 
-        <!-- NEWSLETTER -->
+        <div class="card">
+            <div class="section-badge">Coming Soon</div>
+            <h3>NLP Sentiment Analysis</h3>
+            <p>I'm fine‑tuning BERT for sentiment analysis on IMDb reviews.</p>
+            <div class="blog-date">📅 Coming June 2026</div>
+        </div>
+
         <h2>📧 Stay Updated</h2>
-        <div class="card newsletter-box">
+        <div class="card">
             <p>Subscribe to get notified when I publish new research.</p>
             <form id="newsletterForm">
-                <input type="email" id="subscriberEmail" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
+                <input type="email" id="subscriberEmail" placeholder="Your email address" required style="padding:0.5rem 1rem;border-radius:30px;border:1px solid #374151;background:#0f172a;color:#e2e8f0;width:240px;max-width:70%;margin-right:0.5rem;">
+                <button type="submit" style="background:#818cf8;color:#0f172a;border:none;padding:0.5rem 1.2rem;border-radius:30px;cursor:pointer;font-weight:600;">Subscribe</button>
             </form>
             <p id="subscribeMessage" style="font-size: 0.8rem; margin-top: 0.8rem; display: none;"></p>
         </div>
 
-        <!-- CONTACT -->
-        <div class="card contact-links">
+        <div class="card" style="text-align:center;">
             <h3 style="margin-top: 0;">📫 Connect With Me</h3>
             <p>
                 <a href="mailto:alishba@example.com">✉️ Email</a>
@@ -438,7 +334,7 @@
         </div>
 
         <footer>
-            <p>© 2026 Alishba Zafar · AI/ML &amp; Quantum Research</p>
+            <p>© 2026 Alishba Zafar · AI/ML Research</p>
             <p style="margin-top: 0.2rem;">📅 Last updated: June 2026</p>
         </footer>
 
@@ -448,14 +344,8 @@
         function toggleMode() {
             document.body.classList.toggle('light');
             const btn = document.querySelector('.mode-toggle-btn');
-            if (document.body.classList.contains('light')) {
-                btn.innerHTML = '🌙 Dark Mode';
-            } else {
-                btn.innerHTML = '☀️ Light Mode';
-            }
+            btn.innerHTML = document.body.classList.contains('light') ? '🌙 Dark Mode' : '☀️ Light Mode';
         }
-
-        // Newsletter
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('subscriberEmail').value;
