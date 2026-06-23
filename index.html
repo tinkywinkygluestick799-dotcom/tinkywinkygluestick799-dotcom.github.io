@@ -16,7 +16,6 @@
   body.dark .research-card,
   body.dark .skills,
   body.dark .contact-links,
-  body.dark .publications,
   body.dark .blog-post,
   body.dark .newsletter-box,
   body.dark .roadmap-item,
@@ -84,6 +83,20 @@
   }
   .button:hover {
     background-color: #6366f1;
+    text-decoration: none;
+    transform: scale(1.02);
+  }
+  .cv-button {
+    background-color: #10b981;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+  }
+  .cv-button:hover {
+    background-color: #059669;
     text-decoration: none;
     transform: scale(1.02);
   }
@@ -158,19 +171,6 @@
   .contact-links a {
     margin: 0 12px;
     display: inline-block;
-  }
-  .publications {
-    background: white;
-    padding: 20px;
-    border-radius: 20px;
-    margin-top: 30px;
-  }
-  .publications ul {
-    padding-left: 20px;
-    margin-top: 15px;
-  }
-  .publications li {
-    margin-bottom: 12px;
   }
   hr {
     margin: 30px 0;
@@ -250,14 +250,21 @@
     background: #1e293b;
     color: #e2e8f0;
   }
-  .problem-statement {
+  .result-statement {
     font-size: 0.9rem;
-    color: #4f46e5;
+    color: #10b981;
     font-weight: 500;
-    margin-top: 5px;
+    margin-top: 8px;
   }
-  body.dark .problem-statement {
-    color: #a5b4fc;
+  body.dark .result-statement {
+    color: #34d399;
+  }
+  .connect-top {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+    flex-wrap: wrap;
   }
   @media (max-width: 600px) {
     body { padding: 20px; }
@@ -265,6 +272,8 @@
     nav a { margin: 0 8px; }
     .skills li { font-size: 0.75rem; }
     .newsletter-box input { width: 100%; margin-bottom: 10px; }
+    .connect-top { gap: 8px; }
+    .connect-top .button { font-size: 0.8rem; padding: 6px 14px; }
   }
 </style>
 </head>
@@ -278,6 +287,14 @@
 <h1>Alishba Zafar</h1>
 <p style="font-size: 1.2rem; color: #4f46e5;">Researcher in Artificial Intelligence & Quantum Computing</p>
 
+<!-- ========== CONNECT WITH ME (TOP) ========== -->
+<div class="connect-top">
+  <a href="mailto:alishba@example.com" class="button">✉️ Email</a>
+  <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank" class="button">💻 GitHub</a>
+  <a href="#" class="button">🔗 LinkedIn</a>
+  <a href="#" class="cv-button">📄 Download CV</a>
+</div>
+
 <div class="research-statement">
   🤖 Research focus: Machine Learning | Computer Vision | NLP | Quantum Error Correction | NISQ Computing
 </div>
@@ -288,7 +305,7 @@
 
 <hr>
 
-<!-- ABOUT ME SECTION -->
+<!-- ========== ABOUT ME ========== -->
 <h2>👩‍🔬 About Me</h2>
 <div class="about-section">
   <p>
@@ -299,6 +316,7 @@
   </p>
 </div>
 
+<!-- ========== SKILLS ========== -->
 <div class="skills">
   <h3 style="margin-top: 0;">⚙️ Technical Skills</h3>
   <ul>
@@ -313,7 +331,7 @@
   </ul>
 </div>
 
-<!-- RESEARCH ROADMAP SECTION -->
+<!-- ========== RESEARCH ROADMAP ========== -->
 <h2>🗺️ Research Roadmap</h2>
 
 <div class="roadmap-item">
@@ -344,61 +362,67 @@
   </ul>
 </div>
 
-<!-- AI/ML SECTION -->
+<!-- ========== AI/ML SECTION ========== -->
 <h2>🤖 Artificial Intelligence & Machine Learning</h2>
 
 <div class="research-card">
   <div class="section-badge">AI / Computer Vision</div>
-  <h3>Image Classification with CNNs</h3>
+  <h3>VisionLearner</h3>
   <div class="problem-statement">❓ The problem: Traditional ML fails on complex images. Can deep learning do better?</div>
   <p>Compares CNNs with Random Forest on MNIST and CIFAR-10 datasets.</p>
+  <div class="result-statement">📊 Result: CNN achieved 99.3% accuracy on MNIST, outperforming Random Forest by 3%.</div>
   <a href="ml-image-classification.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">AI / Natural Language Processing</div>
-  <h3>Sentiment Analysis with NLP</h3>
+  <h3>TextSense</h3>
   <div class="problem-statement">❓ The problem: Can AI accurately detect emotion in text? How do different models compare?</div>
   <p>Compares LSTM and BERT on IMDb movie reviews.</p>
+  <div class="result-statement">📊 Result: BERT reached 92% F1 score on IMDb — 5% higher than LSTM.</div>
   <a href="nlp-sentiment.html" class="button">View Project Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">AI / Explainable AI</div>
-  <h3>Explainable AI (XAI)</h3>
+  <h3>ModelExplainer</h3>
   <div class="problem-statement">❓ The problem: AI makes decisions, but we don't know why. How can we explain them?</div>
   <p>Uses SHAP and LIME to explain model predictions.</p>
+  <div class="result-statement">📊 Result: SHAP and LIME identified capital-gain as the most important feature.</div>
   <a href="explainable-ai.html" class="button">View Research Details →</a>
 </div>
 
-<!-- QUANTUM SECTION -->
+<!-- ========== QUANTUM SECTION ========== -->
 <h2>⚛️ Quantum Computing & Physics</h2>
 
 <div class="research-card">
   <div class="section-badge">Quantum Error Correction</div>
-  <h3>⚛️ QEC Sim: Shor vs. Steane</h3>
+  <h3>⚛️ QubitShield</h3>
   <div class="problem-statement">❓ The problem: Quantum computers lose information to noise. Which error-correcting code protects it best?</div>
   <p>Compares Shor's 9-qubit code and Steane's 7-qubit code under depolarizing noise.</p>
+  <div class="result-statement">📊 Result: Steane's code outperforms Shor's code by 2× with fewer qubits.</div>
   <a href="error-correction.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">Quantum Error Mitigation</div>
-  <h3>🔧 NISQ Mitigator</h3>
+  <h3>🔧 NISQGuard</h3>
   <div class="problem-statement">❓ The problem: Today's quantum computers are too noisy. Can we reduce errors without extra qubits?</div>
   <p>Benchmarks ZNE, PEC, and readout error mitigation on IBM hardware.</p>
+  <div class="result-statement">📊 Result: ZNE + readout mitigation reduced errors by 82% on IBM Osaka.</div>
   <a href="error-mitigation.html" class="button">View Research Details →</a>
 </div>
 
 <div class="research-card">
   <div class="section-badge">Quantum Simulation</div>
-  <h3>🧪 Qiskit Playground</h3>
+  <h3>🧪 QuantumPlayground</h3>
   <div class="problem-statement">❓ The problem: Can foundational quantum algorithms run on today's real quantum hardware?</div>
   <p>Implements Deutsch-Jozsa, Grover's search, and teleportation.</p>
+  <div class="result-statement">📊 Result: Deutsch-Jozsa ran with 86% fidelity on real quantum hardware.</div>
   <a href="projects.html" class="button">View Project Details →</a>
 </div>
 
-<!-- BLOG SECTION -->
+<!-- ========== BLOG SECTION ========== -->
 <h2>📝 Research Blog</h2>
 
 <div class="blog-post">
@@ -422,7 +446,7 @@
   <div class="blog-date">📅 May 10, 2026</div>
 </div>
 
-<!-- NEWSLETTER SECTION -->
+<!-- ========== NEWSLETTER ========== -->
 <div class="newsletter-box">
   <h3 style="margin-top: 0;">📧 Stay Updated</h3>
   <p>Subscribe to get notified when I publish new research.</p>
@@ -433,21 +457,13 @@
   <p id="subscribeMessage" style="font-size: 0.8rem; margin-top: 10px; display: none;"></p>
 </div>
 
-<div class="publications">
-  <h3 style="margin-top: 0;">📋 Research Projects</h3>
-  <ul>
-    <li><strong>Alishba Zafar</strong>. (2026). Image Classification on CIFAR-10: CNN vs Random Forest.</li>
-    <li><strong>Alishba Zafar</strong>. (2026). Sentiment Analysis on IMDb Reviews: LSTM vs BERT.</li>
-    <li><strong>Alishba Zafar</strong>. (2026). Explainable AI with SHAP and LIME.</li>
-    <li><strong>Alishba Zafar</strong>. (2026). Quantum Error Mitigation for NISQ Devices.</li>
-  </ul>
-</div>
-
+<!-- ========== CONTACT ========== -->
 <div class="contact-links">
   <h3 style="margin-top: 0;">📫 Connect With Me</h3>
   <p>
     <a href="mailto:alishba@example.com">✉️ Email</a> |
-    <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank">💻 GitHub</a>
+    <a href="https://github.com/tinkywinkygluestick799-dotcom" target="_blank">💻 GitHub</a> |
+    <a href="#" target="_blank">🔗 LinkedIn</a>
   </p>
 </div>
 
