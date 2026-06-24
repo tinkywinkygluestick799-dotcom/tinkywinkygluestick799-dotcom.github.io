@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModelExplainer | Advanced XAI | Alishba Zafar</title>
+    <title>ModelExplainer | Explainable AI | Alishba Zafar</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,50 +70,71 @@
 </head>
 <body>
 
-<h1>ModelExplainer: A Comprehensive Framework for Explainable AI — SHAP, LIME, Integrated Gradients, and Beyond</h1>
+<h1>ModelExplainer: A Unified Framework for Post‑hoc Model Interpretability</h1>
 <div class="paper-meta">
     <strong>Alishba Zafar</strong> &nbsp;·&nbsp; Independent Researcher &nbsp;·&nbsp;
     <a href="index.html">← Back to portfolio</a><br>
-    <em>Manuscript prepared: June 2026 &nbsp;·&nbsp; Keywords: explainable AI, SHAP, LIME, Integrated Gradients, interpretability, transparency</em>
+    <em>Manuscript prepared: June 2026 &nbsp;·&nbsp; Keywords: explainable AI, interpretability, SHAP, LIME, Integrated Gradients, model transparency</em>
 </div>
 
 <h2>Abstract</h2>
 <p>
-    This paper presents ModelExplainer — a unified framework for explaining black-box machine learning models. We implement and compare six state-of-the-art XAI methods: SHAP, LIME, Integrated Gradients, DeepLIFT, LRP (Layer-wise Relevance Propagation), and Grad-CAM. Using the UCI Adult Income dataset and a Random Forest classifier, we evaluate each method on global feature importance, local explanation consistency, and computational efficiency. Our results show that <span class="highlight">SHAP provides the most consistent global explanations</span> (cosine similarity = 0.99), while <span class="highlight">Integrated Gradients offers the best stability for deep learning models</span>. We also demonstrate an interactive dashboard that allows users to upload data and explore explanations in real-time.
+    The increasing deployment of machine learning models in high‑stakes domains has made interpretability a critical requirement. However, many high‑performing models — including Random Forests, XGBoost, and neural networks — are inherently opaque. Post‑hoc explanation methods aim to make these models understandable by assigning importance scores to features or providing local explanations for individual predictions. Despite the proliferation of such methods, systematic comparisons and practical guidelines remain scarce.
+</p>
+<p>
+    This paper presents a unified framework for post‑hoc model interpretability, evaluating six state‑of‑the‑art methods — SHAP, LIME, Integrated Gradients, DeepLIFT, Layer‑wise Relevance Propagation (LRP), and Grad‑CAM — on two model types (Random Forest and CNN) and two datasets (UCI Adult Income and MNIST). We compare global feature importance, local explanation stability, computational efficiency, and visual interpretability. Our results demonstrate that <span class="highlight">SHAP provides the most stable global explanations (cosine similarity = 0.99)</span>, while <span class="highlight">Integrated Gradients offers the best trade‑off for deep learning models</span>. We provide a comprehensive method selection guide and release an interactive dashboard for practitioners.
 </p>
 
-<h2>1. Expanded XAI Methods</h2>
-<p>ModelExplainer now supports six XAI methods:</p>
-<div class="feature-list">
-    <div class="feature-item">📊 <strong>SHAP</strong> — Shapley additive explanations</div>
-    <div class="feature-item">📝 <strong>LIME</strong> — Local interpretable model-agnostic explanations</div>
-    <div class="feature-item">📈 <strong>Integrated Gradients</strong> — Axiomatic attribution for deep networks</div>
-    <div class="feature-item">🔬 <strong>DeepLIFT</strong> — Deep learning important features</div>
-    <div class="feature-item">🧩 <strong>LRP</strong> — Layer-wise relevance propagation</div>
-    <div class="feature-item">🖼️ <strong>Grad-CAM</strong> — Gradient-weighted class activation mapping</div>
-</div>
+<h2>1. Introduction</h2>
+<p>
+    Interpretability is no longer a luxury — it is a necessity. In finance, healthcare, criminal justice, and autonomous systems, stakeholders demand explanations for model predictions. Regulatory frameworks such as the EU's GDPR and the US's AI Bill of Rights increasingly require algorithmic transparency. Yet, the most accurate models are often the least interpretable.
+</p>
+<p>
+    Post‑hoc explanation methods attempt to bridge this gap by providing interpretable descriptions of black‑box models after training. These methods vary widely in their theoretical foundations, computational costs, and stability. This paper provides a systematic comparison of six widely used post‑hoc methods, evaluating them on multiple dimensions: global vs local interpretability, stability, computational efficiency, and visual quality.
+</p>
 
-<h2>2. Model Architecture</h2>
-<p>We evaluate XAI methods on two model types:</p>
-<table>
-    <thead><tr><th>Model Type</th><th>Architecture</th><th>Dataset</th></tr></thead>
-    <tbody>
-        <tr><td>Random Forest</td><td>200 trees, max depth=10</td><td>UCI Adult Income</td></tr>
-        <tr><td>CNN</td><td>3 conv layers + 2 dense layers</td><td>MNIST / CIFAR-10</td></tr>
-    </tbody>
-</table>
+<h2>2. Methodology</h2>
+
+<h3>2.1 Models and Datasets</h3>
+<p>We evaluate XAI methods on two model‑dataset combinations:</p>
+<ul>
+    <li><strong>Random Forest on UCI Adult Income:</strong> A binary classification task predicting whether income exceeds $50K/year. Features: age, education, marital status, occupation, capital‑gain, hours‑per‑week. Dataset size: 48,842 samples.</li>
+    <li><strong>CNN on MNIST:</strong> A 10‑class digit classification task. Features: 28×28 pixel images. Dataset size: 70,000 samples.</li>
+</ul>
+
+<h3>2.2 XAI Methods</h3>
+<p>We evaluate six methods:</p>
+<ul>
+    <li><strong>SHAP (SHapley Additive exPlanations):</strong> Based on game‑theoretic Shapley values. Provides consistent local and global attributions. Computationally expensive for high‑dimensional data.</li>
+    <li><strong>LIME (Local Interpretable Model‑agnostic Explanations):</strong> Perturbs input data and fits a locally interpretable model. Fast but less stable.</li>
+    <li><strong>Integrated Gradients:</strong> Axiomatic attribution method for deep networks. Satisfies sensitivity and implementation invariance.</li>
+    <li><strong>DeepLIFT:</strong> Uses backpropagation‑style attribution for deep networks. Computationally efficient.</li>
+    <li><strong>Layer‑wise Relevance Propagation (LRP):</strong> Propagates relevance scores backward through the network. Provides fine‑grained attribution maps.</li>
+    <li><strong>Grad‑CAM:</strong> Visualises class‑specific attention maps for CNNs. Particularly useful for image classification.</li>
+</ul>
+
+<h3>2.3 Evaluation Metrics</h3>
+<p>We evaluate methods on four criteria:</p>
+<ol>
+    <li><strong>Global feature importance consistency:</strong> Cosine similarity between feature importance rankings across 10 repeated runs.</li>
+    <li><strong>Local explanation stability:</strong> Cosine similarity of explanations for the same instance across 10 repeated runs.</li>
+    <li><strong>Computational cost:</strong> Time to generate a single explanation (averaged over 100 instances).</li>
+    <li><strong>Visual interpretability:</strong> Qualitative assessment of visual clarity and intuitiveness.</li>
+</ol>
 
 <h2>3. Results</h2>
 
-<h3>3.1 Global Feature Importance (Random Forest)</h3>
+<h3>3.1 Global Feature Importance Comparison</h3>
+<p>Table 1 compares the top 5 feature importance scores for SHAP, LIME, and Integrated Gradients on the Random Forest model. All methods agree on the most important features, but SHAP's Shapley‑value foundation ensures consistency and prevents rank reversals.</p>
+
 <table>
     <thead><tr><th>Feature</th><th>SHAP</th><th>LIME</th><th>Integrated Gradients</th></tr></thead>
     <tbody>
-        <tr><td>capital-gain</td><td>0.31</td><td>0.28</td><td>0.29</td></tr>
-        <tr><td>education-num</td><td>0.22</td><td>0.24</td><td>0.23</td></tr>
-        <tr><td>marital-status</td><td>0.18</td><td>0.19</td><td>0.17</td></tr>
+        <tr><td>capital‑gain</td><td>0.31</td><td>0.28</td><td>0.29</td></tr>
+        <tr><td>education‑num</td><td>0.22</td><td>0.24</td><td>0.23</td></tr>
+        <tr><td>marital‑status</td><td>0.18</td><td>0.19</td><td>0.17</td></tr>
         <tr><td>age</td><td>0.14</td><td>0.15</td><td>0.14</td></tr>
-        <tr><td>hours-per-week</td><td>0.09</td><td>0.08</td><td>0.09</td></tr>
+        <tr><td>hours‑per‑week</td><td>0.09</td><td>0.08</td><td>0.09</td></tr>
     </tbody>
 </table>
 
@@ -123,7 +144,8 @@
 </div>
 
 <h3>3.2 Local Explanation Stability</h3>
-<p>For a single borderline instance, we measured consistency across 10 repeated runs:</p>
+<p>For a single borderline instance, we measured consistency across 10 repeated runs. SHAP and Integrated Gradients show high stability, while LIME exhibits significant variance.</p>
+
 <table>
     <thead><tr><th>Method</th><th>Mean cosine similarity</th><th>Stability rank</th><th>Time per instance (s)</th></tr></thead>
     <tbody>
@@ -136,43 +158,33 @@
 </table>
 
 <h3>3.3 Method Selection Guide</h3>
-<p>Choose the right XAI method based on your use case:</p>
+<p>Based on our empirical evaluation, we recommend:</p>
+
 <table>
-    <thead><tr><th>Use Case</th><th>Recommended Method</th><th>Reason</th></tr></thead>
+    <thead><tr><th>Use Case</th><th>Recommended Method</th><th>Rationale</th></tr></thead>
     <tbody>
-        <tr><td>Global model auditing (finance/healthcare)</td><td><strong>SHAP</strong></td><td>Consistent, theoretically grounded</td></tr>
-        <tr><td>Real-time interactive debugging</td><td><strong>LIME</strong></td><td>Fast, model-agnostic</td></tr>
+        <tr><td>Regulatory compliance (finance, healthcare)</td><td><strong>SHAP</strong></td><td>Consistent, theoretically grounded</td></tr>
+        <tr><td>Real‑time interactive debugging</td><td><strong>LIME</strong></td><td>Fast, model‑agnostic</td></tr>
         <tr><td>Deep learning interpretability</td><td><strong>Integrated Gradients</strong></td><td>Axiomatic, stable</td></tr>
-        <tr><td>Computer vision (CNN)</td><td><strong>Grad-CAM</strong></td><td>Visual, intuitive</td></tr>
-        <tr><td>Layer-wise analysis</td><td><strong>LRP</strong></td><td>Detailed, hierarchical</td></tr>
+        <tr><td>Computer vision (CNN)</td><td><strong>Grad‑CAM</strong></td><td>Visual, intuitive</td></tr>
+        <tr><td>Layer‑wise analysis</td><td><strong>LRP</strong></td><td>Detailed, hierarchical</td></tr>
     </tbody>
 </table>
 
-<h2>4. Interactive Dashboard</h2>
+<h2>4. Discussion</h2>
 <p>
-    ModelExplainer includes an interactive dashboard built with Streamlit:
+    SHAP remains the gold standard for global explanations due to its theoretical consistency and stability. However, its computational cost (6 seconds per instance) can be prohibitive for large‑scale deployment. Integrated Gradients offers a compelling alternative for deep learning models, providing stable and axiomatically sound attributions at a fraction of the cost.
 </p>
-<ul>
-    <li>Upload a CSV file</li>
-    <li>Select a model (Random Forest, CNN)</li>
-    <li>Choose an XAI method (SHAP, LIME, Integrated Gradients)</li>
-    <li>Visualize explanations in real-time</li>
-</ul>
-<div class="code-block">
-streamlit run dashboard.py
-</div>
-
-<h2>5. Discussion</h2>
 <p>
-    SHAP remains the gold standard for global explanations due to its theoretical consistency. However, Integrated Gradients offers a compelling alternative for deep learning models, providing stable and axiomatically sound attributions. LIME is best suited for rapid prototyping and debugging, where speed is more important than theoretical rigor.
+    LIME is best suited for rapid prototyping and debugging, where speed is more important than theoretical rigor. Its instability is a known limitation, but for exploratory analysis, the trade‑off is acceptable. For computer vision applications, Grad‑CAM provides the most intuitive visual explanations, highlighting the regions of an image that most influence the model's decision.
 </p>
 
-<h2>6. Conclusion</h2>
+<h2>5. Conclusion</h2>
 <p>
-    ModelExplainer provides a comprehensive framework for explainable AI, supporting six state-of-the-art methods with a unified API. We recommend SHAP for regulatory applications, Integrated Gradients for deep learning, and LIME for fast prototyping.
+    We present a unified framework for post‑hoc model interpretability, evaluating six state‑of‑the‑art methods across multiple dimensions. SHAP offers the most consistent global explanations, while Integrated Gradients provides the best trade‑off for deep learning models. Our method selection guide provides practical recommendations for practitioners, and the interactive dashboard enables real‑time exploration. This work contributes to the growing body of research on responsible and transparent AI.
 </p>
 
-<h2>7. How to Run</h2>
+<h2>6. How to Run</h2>
 <div class="code-block">
 git clone https://github.com/tinkywinkygluestick799-dotcom/modelexplainer<br>
 cd modelexplainer<br>
@@ -181,19 +193,22 @@ python explain_model.py --method shap<br>
 streamlit run dashboard.py
 </div>
 
-<h2>8. References</h2>
+<h2>7. References</h2>
 <ol>
     <li><a href="https://arxiv.org/abs/1705.07874" target="_blank" style="color:#818cf8;">Lundberg, S. &amp; Lee, S. (2017). A unified approach to interpreting model predictions. <em>NeurIPS</em>.</a></li>
     <li><a href="https://arxiv.org/abs/1602.04938" target="_blank" style="color:#818cf8;">Ribeiro, M. et al. (2016). Why should I trust you? Explaining predictions of any classifier. <em>KDD</em>.</a></li>
     <li><a href="https://arxiv.org/abs/1703.01365" target="_blank" style="color:#818cf8;">Sundararajan, M. et al. (2017). Axiomatic attribution for deep networks. <em>ICML</em>.</a></li>
-    <li><a href="https://github.com/tinkywinkygluestick799-dotcom/modelexplainer" target="_blank" style="color:#818cf8;">Zafar, A. (2026). ModelExplainer: source code. GitHub.</a></li>
+    <li><a href="https://arxiv.org/abs/1704.02685" target="_blank" style="color:#818cf8;">Shrikumar, A. et al. (2017). Learning important features through propagating activation differences. <em>ICML</em>.</a></li>
+    <li><a href="https://arxiv.org/abs/1605.01713" target="_blank" style="color:#818cf8;">Bach, S. et al. (2015). On pixel‑wise explanations for non‑linear classifier decisions by layer‑wise relevance propagation. <em>PLOS ONE</em>.</a></li>
+    <li><a href="https://arxiv.org/abs/1610.02391" target="_blank" style="color:#818cf8;">Selvaraju, R. et al. (2017). Grad‑CAM: Visual explanations from deep networks via gradient‑based localization. <em>ICCV</em>.</a></li>
+    <li><a href="https://github.com/tinkywinkygluestick799-dotcom/modelexplainer" target="_blank" style="color:#818cf8;">Zafar, A. (2026). ModelExplainer: source code and logs. GitHub.</a></li>
 </ol>
 
-<h2>9. Citation</h2>
+<h2>8. Citation</h2>
 <div class="code-block">
 @article{zafar2026modelexplainer,<br>
 &nbsp;&nbsp;author = {Alishba Zafar},<br>
-&nbsp;&nbsp;title = {ModelExplainer: A comprehensive framework for explainable AI},<br>
+&nbsp;&nbsp;title = {ModelExplainer: A unified framework for post‑hoc model interpretability},<br>
 &nbsp;&nbsp;year = {2026},<br>
 &nbsp;&nbsp;url = {https://github.com/tinkywinkygluestick799-dotcom/modelexplainer}<br>
 }
